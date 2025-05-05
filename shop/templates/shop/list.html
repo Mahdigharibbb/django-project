@@ -1,0 +1,391 @@
+{% extends 'parent/base.html' %}
+{% load static %}
+{% block title %} product list {% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- fonts-------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/vendor/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/materialdesignicons.css'%}">
+    <!-- plugin------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/swiper-bundle.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/kamadatepicker.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/jgallery.min.css'%}">
+    <!-- style-main--------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- content-site -->
+    <main>
+        <div class="main-container">
+            <div class="d-block">
+                <div class="col-lg-9 col-md-9 col-xs-12 float-left order-1 mt-4">
+                    <!-- slider-main -->
+                    <div class="slider-main mb-4">
+                        <div class="swiper-container-main">
+                            <div class="swiper-wrapper">{% for product in products %}
+                                <div class="swiper-slide" style="height: 260px">
+                                    <div class="item">
+                                        <a href="{{ product.get_absolute_url }}" class="d-block hover-img-link">
+                                            <img src="{{ product.images.first.file.url }}" class="img-fluid" alt="">
+                                        </a>
+                                    </div>
+                                </div>{% endfor %}
+                            </div>
+                            <!-- Add Pagination -->
+                            <div class="swiper-pagination"></div>
+                            <!-- Add Arrows -->
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+
+                    </div>
+                    <!-- slider-main -->
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-xs-12 float-right order-1 mt-4 mb-4">
+                    <!-- card-instant-offer -->
+                    <div class="card-instant-offer">
+                        <header class="card-header-offer">
+                            <h3 class="title">پیشنهاد روز</h3>
+                        </header>
+                        <div class="swiper-suggestion">
+                            <div class="swiper-wrapper">{% for product in products2 %}{% if product.off >= 1 %}
+                                <div class="swiper-slide">
+                                    <div class="item">
+                                        <a href="{{ product.get_absolute_url }}">
+                                            <img src="{{ product.images.first.file.url }}" class="w-100" alt="">
+                                        </a>
+                                        <h3 class="product-title">
+                                            <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                                        </h3>
+                                        <div class="price">
+                                            <del>
+                                                <span>{{ product.price }}
+                                                    <span>تومان</span>
+                                                </span>
+                                            </del>
+                                            <ins>
+                                                <span>{{ product.new_price }}
+                                                    <span>تومان</span>
+                                                </span>
+                                            </ins>
+                                        </div>
+                                        <div class="product-box-action">
+
+                                            <form action="{% url 'cart:add_to_cart_in' product.id %}" method="post">
+                                            {% csrf_token %}{% if product.inventory == 0 %} <p>ناموجود</p> {% endif %}
+                                            <button class="btn btn-gradient-primary add-to-cart" type="submit">
+                                                <i class="mdi mdi-plus-circle"></i>
+                                                    افزودن به سبد
+                                            </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>{% endif %}{% endfor %}
+                            </div>
+                            <!-- Add Arrows -->
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+                    </div>
+                    <!-- card-instant-offer -->
+                </div>
+
+                <div class="col-lg-9 col-md-9 col-xs-12 float-left order-2">
+                    <!--grantee-->
+                    <div class="grantee card card-body justify-content-center">
+                        <div class="no-gutters align-items-center">
+                            <!-- item -->
+                            <div class="col-lg-3 float-right">
+                                <div class="gutter-item">
+                                    <div class="gutter-img d-inline-block">
+                                        <img src="../../static/images/features/Discount.svg" alt="" class="img-fluid" width="75">
+                                    </div>
+                                    <div class="gutter-title d-inline-block text-right">
+                                        <span>تا ۵۰ درصد تخفیف</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- item -->
+                            <!-- item -->
+                            <div class="col-lg-3 float-right">
+                                <div class="gutter-item">
+                                    <div class="gutter-img d-inline-block">
+                                        <img src="../../static/images/features/fast-sending.svg" alt="" class="img-fluid" width="75">
+                                    </div>
+                                    <div class="gutter-title d-inline-block text-right">
+                                        <span>ارسال سریع</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- item -->
+                            <!-- item -->
+                            <div class="col-lg-3 float-right">
+                                <div class="gutter-item">
+                                    <div class="gutter-img d-inline-block">
+                                        <img src="../../static/images/features/Free-delivery.svg" alt="" class="img-fluid" width="75">
+                                    </div>
+                                    <div class="gutter-title d-inline-block text-right">
+                                        <span>تحویل رایگان</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- item -->
+                            <!-- item -->
+                            <div class="col-lg-3 float-right">
+                                <div class="gutter-item">
+                                    <div class="gutter-img d-inline-block">
+                                        <img src="../../static/images/features/Return-guarantee.svg" alt="" class="img-fluid" width="75">
+                                    </div>
+                                    <div class="gutter-title d-inline-block text-right">
+                                        <span>ضمانت بازگشت کالا</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- item -->
+                        </div>
+                    </div>
+                    <!--grantee-->
+                </div>
+                <!-- slider-products -->
+                    <div class="col-12 float-right">
+                        <div class="slider-products">
+                            <header class="card-header">
+                                <span id="pt" class="title-one"> دارای تخفیف</span>
+                                <a class="card-title">مشاهده همه</a>
+                            </header>
+                            <div class="swiper-container-product">
+                                <div class="swiper-wrapper">
+                                    {% for product in products %}
+                                        {% if product.off %}
+                                    <div class="swiper-slide">
+                                        <div class="item">
+                                            <a href="#" class="d-block hover-img-link" data-toggle="modal" data-target="#modal-{{ product.id }}">
+                                                <img src="{{ product.images.first.file.url }}" class="img-fluid" alt="">
+                                            </a>
+                                            <h2 class="post-title">
+                                                <a href="#" data-toggle="modal" data-target="#modal-{{ product.id }}">
+                                                    {{ product.name }}
+                                                </a>
+                                            </h2>
+                                            <div class="price">
+                                                <del><span>{{ product.price }}<span>تومان</span></span></del>
+                                                <ins><span>{{ product.new_price }}<span>تومان</span></span></ins>
+                                            </div>
+                                                <div class="product-box-action">
+                                           <form action="{% url 'cart:add_to_cart_in' product.id %}" method="post">
+                                            {% csrf_token %}{% if product.inventory == 0 %} <p>ناموجود</p> {% endif %}
+                                            <button class="btn btn-gradient-primary add-to-cart" type="submit">
+                                                <i class="mdi mdi-plus-circle"></i>
+                                                    افزودن به سبد
+                                            </button>
+                                            </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        {% endif %}
+                                        {% endfor %}
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                    </div>
+                </div>
+                <div class="col-12 float-right">
+                    <div class="slider-products">
+                        <header class="card-header">
+                            <span id="ps" class="title-one">محبوبترین ها</span>
+                            <a class="card-title">مشاهده همه</a>
+                        </header>
+                        <div class="swiper-container-product">
+                            <div class="swiper-wrapper">
+                                {% for product in products_likes %}
+                                <div class="swiper-slide">
+                                    <div class="item">
+                                        <a href="#" class="d-block hover-img-link" data-toggle="modal" data-target="#modal-{{ product.id }}">
+                                            <img src="{{ product.images.first.file.url }}" class="img-fluid" alt="">
+                                        </a>
+                                        <p>❤️ تعداد لایک‌ها: {{ product.like_count }}</p>
+                                        <h2 class="post-title">
+                                            <a href="{{ product.get_absolute_url }}" data-toggle="modal" data-target="#modal-{{ product.id }}">
+                                                {{ product.name }}
+                                            </a>
+                                        </h2>
+                                        <div class="price">
+                                            <del><span>{{ product.price }}<span>تومان</span></span></del>
+                                            <ins><span>{{ product.new_price }}<span>تومان</span></span></ins>
+                                        </div>
+                                        <div class="product-box-action">
+                                           <form action="{% url 'cart:add_to_cart_in' product.id %}" method="post">
+                                            {% csrf_token %}{% if product.inventory == 0 %} <p>ناموجود</p> {% endif %}
+                                            <button class="btn btn-gradient-primary add-to-cart" type="submit">
+                                                <i class="mdi mdi-plus-circle"></i>
+                                                    افزودن به سبد
+                                            </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>{% endfor %}
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- slider-products -->
+
+                <!-- slider-products -->
+                <div class="col-12 float-right">
+                    <div class="slider-products">
+                        <header class="card-header">
+                            <span id="pn" class="title-one">پوشاک</span>
+                            <a class="card-title">مشاهده همه</a>
+                        </header>
+                        <div class="swiper-container-product">
+                            <div class="swiper-wrapper">{% for product in products_clothing %}
+                                <div class="swiper-slide">
+                                    <div class="item">
+                                        <a href="#" class="d-block hover-img-link" data-toggle="modal" data-target="#modal-{{ product.id }}">
+                                            <img src="{{ product.images.first.file.url }}" class="img-fluid" alt="">
+                                        </a>
+                                        <h2 class="post-title">
+                                            <a href="#" data-toggle="modal" data-target="#modal-{{ product.id }}">
+                                                {{ product.name }}
+                                            </a>
+                                        </h2>
+                                        <div class="price">
+                                            <del><span>{{ product.price }}<span>تومان</span></span></del>
+                                            <ins><span>{{ product.new_price }}<span>تومان</span></span></ins>
+                                        </div>
+                                        <form action="{% url 'cart:add_to_cart_in' product.id %}" method="post">
+                                                {% csrf_token %}{% if product.inventory == 0 %} <p>ناموجود</p> {% endif %}
+                                        <div class="product-box-action">
+                                            <button class="btn btn-gradient-primary add-to-cart" type="submit">
+                                                <i class="mdi mdi-plus-circle"></i>
+                                                افزودن به سبد
+                                            </button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>{% endfor %}
+                                </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- content-site -->
+
+        <div class="slider-products" style="width: 0">
+                <!-- Modal -->
+            {% for product in products %}
+                <div class="modal fade" id="modal-{{ product.id }}" tabindex="-1" role="dialog" aria-labelledby="modalLabel-{{ product.id }}" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-lg-6 col-md-6 col-xs-12 order-1 float-right">
+                                <div class="thum-img">
+                                    <div class="swiper-container-more" id="swiper-container-{{ product.id }}">
+                                        <div class="swiper-wrapper">{% for img in product.images.all %}
+                                            <div class="swiper-slide">
+                                                <div class="item">
+                                                    <a href="#" class="d-block hover-img-link" data-toggle="modal" data-target="#modal-{{ product.id }}">
+                                                        <img src="{{ img.file.url }}" class="img-fluid" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>{% endfor %}
+                                        </div><br><br>
+                                        <!-- Add Pagination -->
+                                        <div class="swiper-pagination"></div>
+                                        <!-- Add Navigation -->
+                                        <div class="swiper-button-prev"></div>
+                                        <div class="swiper-button-next"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-xs-12 order-2 float-right">
+                                <div class="product-box-modal-title">
+                                    <h2 class="post-title">
+                                        <a href="#">
+                                            {{ product.name }}
+                                        </a>
+                                    </h2>
+                                </div>
+                                <div class="small-gutters align-items-stretch mb-4">
+                                    <div class="col-lg-5 pr-0 pl-0 float-right">
+                                        <div class="product-rate">
+                                            <p>❤️ تعداد لایک‌ها: {{ product.like_count }}</p>
+            {#                                                        <i class="fa fa-star active"></i>#}
+            {#                                                        <i class="fa fa-star active"></i>#}
+            {#                                                        <i class="fa fa-star active"></i>#}
+            {#                                                        <i class="fa fa-star active"></i>#}
+            {#                                                        <i class="fa fa-star active"></i>#}
+                                        </div>
+                                        <div class="product-box-modal_price">
+                                            <div class="price">
+                                                <del><span>{{ product.price }}<span>تومان</span></span></del>
+                                                <ins><span>{{ product.new_price }}<span>تومان</span></span></ins>
+                                            </div>
+                                        </div>
+                                    <form action="{% url 'cart:add_to_cart_in' product.id %}" method="post">
+                                    {% csrf_token %}
+                                        <div class="product-box_action">
+                                            <button class="btn btn-gradient-primary add-to-cart" type="submit">افزودن به سبد</button>
+                                        </div>
+                                        {% if product.inventory == 0 %} <p>ناموجود</p> {% endif %}
+                                    </form>
+                                    </div>
+                                    <div class="col-lg-7 pr-0 pl-0 float-right">
+                                        <div class="bg-gray-100 rounded">
+                                            <ul class="list-doted mb-0">
+                                                <li>{{ product.description }}</li>
+                                            </ul>
+                                        </div>
+                                        <div class="product-box_action">
+                                            <a href="{{ product.get_absolute_url }}" class="btn btn-outline-dark btn-block">مشاهده جزئیات</a>
+                                        </div>
+                                    </div>
+                                    <div class="small-gutters">
+                                        <div class="col-lg-12 mb-8 pr-0 pl-0 float-right mt-3">
+                                            <div class="justify-content-between">
+                                                <a href="{% url 'shop:product_comment' product.id %}" class="text-primary"><i class="fa fa-comment-o"></i>ثبت نظر</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>{% endfor %}
+        </div>
+</body>
+<!-- plugin------------------------------------------------------------->
+
+<script src="{% static 'js/vendor/jquery-3.2.1.min.js'%}"></script>
+<script src="{% static 'js/vendor/popper.min.js'%}"></script>
+<script src="{% static 'js/vendor/bootstrap.min.js'%}"></script>
+<script src="{% static 'js/vendor/swiper-bundle.min.js'%}"></script>
+<script src="{% static 'js/vendor/kamadatepicker.min.js'%}"></script>
+<script src="{% static 'js/vendor/jgallery.min.js'%}"></script>
+<!-- jquery-main-------------------------------------------------------->
+<script src="{% static 'js/main.js'%}"></script>
+
+</html>
+{% endblock %}
+

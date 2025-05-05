@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت نظر</title>
+    <!-- fonts-------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/vendor/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/materialdesignicons.css' %}">
+    <!-- plugin------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/kamadatepicker.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/jgallery.min.css' %}">
+    <!-- style-main--------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+</head>
+<body>
+    <!-- content-site -->
+    <main>
+        <div class="main-container">
+            <div class="d-block">
+                <!-- product-comment -->
+                <div class="card-body">
+                    <div class="row">
+                        <section class="product-comment">
+                            <!--product picture-->
+                            <div class="col-lg-5 col-md-5 col-xs-12 float-right">
+                                <div class="comments-product-col-gallery mt-3 pt-3 text-center">
+                                {% with product.images.first as img %}
+                                    {% if img %}
+                                        <img style="margin-top: 120px" src="{{ img.file.url }}" alt="">
+                                    {% endif %}
+                                {% endwith %}
+                                </div>
+                            </div>
+                            <!--product picture-->
+                            <!--product info & form -->
+                            <div class="col-lg-7 col-md-7 col-xs-12 float-left">
+                                <div class="col-10 mx-auto d-block div-res">
+                                    <div class="product-attributes d-inline-block mb-3">
+                                        <div class="product-config">
+                                            <h5 class="product-title float-right">
+                                                {{ product.name }}
+                                            </h5>
+                                            <span class="product-title-en">{{ product.description }}</span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="product-attributes d-inline-block">
+                                        <div class="product-config">
+                                            <h6 class="product-title">
+                                                ❤️ تعداد لایک‌ها: {{ product.like_count }}
+                                            </h6>
+                                        </div>
+                                    </div>
+                                    <div class="comments-add-col-form">
+                                        <div class="form-comment">
+                                            <div class="col-md-12 col-sm-12">
+                                                <div class="form-ui">
+                                                    <form method="post">
+                                                        {% csrf_token %}
+                                                    <div class="row">
+                                                        <div class="col-12 px-0">
+                                                            <div class="form-row-title mb-2"> نام خود را بنویسید </div>
+                                                            <div class="form-row">
+                                                                <input name="name" {% if form.name.value %} value="{{ form.name.value }}" {% endif %} class="input-ui pr-2" type="text" placeholder="نام خود را بنویسید">
+                                                            </div>
+                                                            {% if form.name.errors %}
+                                                                <small class="text-danger">{{ form.name.errors.0 }}</small>
+                                                            {% endif %}
+                                                        </div>
+                                                        <div class="col-12 mt-3 px-0">
+                                                            <div class="form-row-title mb-2">متن نظر شما</div>
+                                                            <div class="form-row">
+                                                                <textarea name="body" class="input-ui pr-2 pt-2" rows="5" placeholder="متن خود را بنویسید" style="height:120px;">{% if form.body.value %}{{ form.body.value }}{% endif %}</textarea>
+                                                            </div>
+                                                            {% if form.body.errors %}
+                                                                <small class="text-danger">{{ form.body.errors.0 }}</small>
+                                                            {% endif %}
+                                                        </div>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <div class="col-12 mt-5 px-0">
+                                                            <a href="{% url 'shop:register_comment' %}">
+                                                            <button type="submit" class="btn comment-submit-button d-block">
+                                                                ثبت نظر
+                                                            </button>
+                                                            </a>
+                                                            <a href="{{ referer }}" class="btn btn-light btn-back-index">
+                                                            بازگشت به صفحه قبل
+                                                                </a>
+                                                        </div>
+                                                    </div></form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--product info & form -->
+                        </section>
+                    </div>
+                </div>
+                <!-- product-comment -->
+            </div>
+        </div>
+    </main>
+    <!-- content-site -->
+
+</body>
+<!-- plugin------------------------------------------------------------->
+<script src="{% static 'js/vendor/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'js/vendor/popper.min.js' %}"></script>
+<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/vendor/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'js/vendor/kamadatepicker.min.js' %}"></script>
+<script src="{% static 'js/vendor/jgallery.min.js' %}"></script>
+<!-- jquery-main-------------------------------------------------------->
+<script src="{% static 'js/main.js' %}"></script>
+</html>

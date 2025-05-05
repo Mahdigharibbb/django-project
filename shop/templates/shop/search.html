@@ -1,0 +1,460 @@
+{% extends 'parent/base.html' %}
+{% load static %}
+{% load shop_tags %}
+{% block title %} search {% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محصولات</title>
+    <!-- fonts-------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/vendor/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/materialdesignicons.css'%}">
+    <!-- plugin------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/swiper-bundle.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/noUISlider.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/jgallery.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/kamadatepicker.min.css'%}">
+    <!-- style-main--------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css'%}">
+</head>
+<body>
+    <!-- content-site -->
+    <main>
+        <div class="main-container">
+            <!-- search -->
+            <div class="small-gutters">
+                <div class="card-body px-0">
+                    <!--sidebar wrap-->
+                    <div class="col-lg-3 col-md-12 col-xs-12 float-right sticky-sidebar">
+                        <div class="shop-archive-sidebar">
+                            <form method="get" class="form-search" id="frmSearch" action="{% url 'shop:search' %}">
+                                <input type="hidden" name="query" value="{{ request.GET.query }}">
+                            <div class="sidebar-archive mb-3">
+                                <!--search-box-->
+                                <div class="card widget-product-categories pb-0">
+                                    <div class="card-header card-header-slim card-header-right-border pl-0">
+
+                                        <!--header caption-->
+                                        <div class="card-header-caption">
+                                            <div class="card-header-caption-title">
+                                                <div class="card-header-caption-text">
+                                                    <h6 class="mb-0">
+                                                        <button class="btn btn-block text-right" data-toggle="collapse" href="#headingTwo" role="button" aria-expanded="true" aria-controls="headingTwo">
+                                                            پوشاک
+                                                        <i class="mdi mdi-chevron-down"></i>
+                                                        </button>
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--header caption end-->
+                                        
+                                    </div>
+                                    <div class="product-filter">
+                                        <div class="card-body px-0 py-0">
+                                            <div class="collapse show" id="headingTwo">
+                                                <div class="wrapper">
+                                                    <div class="scrollbar" id="style-1">
+                                                        <div class="force-overflow">{% for ct in categories_clothing %}
+                                                            <div class="catalog">
+                                                                <ul class="catalog-list">
+                                                                    <a href="#" class="catalog-link active">
+                                                                        <i class="fa fa-angle-up"></i>
+                                                                        {{ ct.name }}
+                                                                    </a>
+                                                                    <ul class="catalog-list">
+                                                                        {% for product in products_clothing %}
+                                                                            {% if product.category.name == ct.name %}
+                                                                        <li>
+                                                                            <a href="#" class="catalog-link">{{ product.name }}</a>
+                                                                        </li>{% endif %}{% endfor %}
+                                                                    </ul>
+                                                                </ul>
+                                                            </div>{% endfor %}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--search-box-end-->
+                                <!--search-box-->
+                                <div class="card widget-product-categories pb-0">
+                                    <div class="card-header card-header-slim card-header-right-border pl-0">
+
+                                        <!--header caption-->
+                                        <div class="card-header-caption">
+                                            <div class="card-header-caption-title">
+                                                <div class="card-header-caption-text">
+                                                    <h6 class="mb-0">
+                                                        <button class="btn btn-block text-right" data-toggle="collapse" href="#headingThree" role="button" aria-expanded="true" aria-controls="headingThree">
+                                                            دسته بندی
+                                                        <i class="mdi mdi-chevron-down"></i>
+                                                        </button>
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--header caption end-->
+                                        
+                                    </div>
+                                    <div class="product-filter">
+                                        <div class="card-body py-0 px-0">
+                                            <div class="collapse show" id="headingThree">
+                                                <ul>{% for ct in categories %}
+                                                    {% if forloop.counter <= 3 %}
+                                                    <li class="custom-control custom-checkbox">
+                                                        <div class="form-auth-row">
+                                                            <label for="#" class="ui-checkbox">
+                                                                <input type="checkbox" value="{{ ct.name }}" name="category" id="remember" {% if ct.name in selected_categories %}checked{% endif %}>
+                                                                <span class="ui-checkbox-check"></span>
+                                                            </label>
+                                                            <label for="remember" class="remember-me">{{ ct.name }}</label>
+                                                        </div>
+                                                    </li>
+                                                    {% endif %}
+                                                    {% if forloop.counter >= 4 %}
+                                                    <li class="custom-control custom-checkbox checkbox-more">
+                                                        <div class="form-auth-row">
+                                                            <label for="#" class="ui-checkbox">
+                                                                <input type="checkbox" value="1" name="login" id="remember">
+                                                                <span class="ui-checkbox-check"></span>
+                                                            </label>
+                                                            <label for="remember" class="remember-me">{{ ct.name }}</label>
+                                                        </div>
+                                                    </li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                                    <li class="checkbox-more-handler">
+                                                        <a href="#" class="read-more-link">
+                                                            <span class="show-more"><i class="fa fa-angle-down"></i>بیشتر</span>
+                                                            <span class="show-less"><i class="fa fa-angle-up"></i>بستن</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--search-box-end-->
+                                <!--search-box-->
+                                <div class="card widget-product-categories pb-0">
+                                    <div class="product-filter">
+                                        <div class="card-body py-0 px-0">
+                                            <ul>
+                                                <li class="custom-control custom-checkbox">
+                                                    <div class="form-auth-row">
+                                                        <label for="available-products" class="ui-checkbox">
+                                                            <input type="checkbox" value="1" name="available" id="available-products" {% if only_available %}checked{% endif %}>
+                                                            <span class="ui-checkbox-check"></span>
+                                                        </label>
+                                                        <label for="available-products" class="remember-me">نمایش کالاهای موجود</label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--search-box-end-->
+                                <!--search-box-->
+                                <div class="card widget-product-categories pb-0">
+                                    <div class="card-header card-header-slim card-header-right-border pl-0">
+
+                                        <!--header caption-->
+                                        <div class="card-header-caption">
+                                            <div class="card-header-caption-title">
+                                                <div class="card-header-caption-text">
+                                                    <h6 class="mb-0">
+                                                        <button class="btn btn-block text-right" data-toggle="collapse" href="#headingFour" role="button" aria-expanded="true" aria-controls="headingFour">
+                                                            فیلتر قیمت
+                                                        <i class="mdi mdi-chevron-down"></i>
+                                                        </button>
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--header caption end-->
+                                        
+                                    </div>
+                                    <div class="product-filter">
+                                        <div class="card-body py-0 px-0">
+                                            <div class="collapse show" id="headingFour">
+                                                <div class="box-data">
+                                                        <div class="mt-5 mb-4">
+                                                            <div id="slider-non-linear-step"></div>
+                                                        </div>
+                                                        <div class="filter-range mt-2 mb-2">
+                                                            <span>قیمت: از</span>
+                                                            <span class="example-val" id="slider-non-linear-step-value"></span>تومان
+                                                        </div>
+                                                        <div class="mt-2 row">
+                                                            <button type="submit" class="btn btn-range applyPriceFilterBtn">
+                                                                اعمال
+                                                            </button>
+                                                        </div>
+                                                </div>
+                                                <input type="hidden" id="min-price" name="min_price" value="0">
+                                                <input type="hidden" id="max-price" name="max_price" value="5000000">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--search-box-end-->
+                            </div></form>
+                        </div>
+                    </div>
+                    <!--sidebar wrap end-->
+
+                    <!--product list wrap-->
+                    <div class="col-lg-9 col-md-12 col-xs-12 float-left order-1">
+                        <div class="shop-archive-content mt-3 d-block">
+                            <div id="breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    {% if query %}
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"> نتایج جستجو برای {{ query }}</li>
+                                        <li class="breadcrumb-item active open" aria-current="page">{{ results.count }} نتیجه </li>
+                                    </ol>
+                                    {% endif %}
+                                </nav>
+                            </div>
+                            <div class="archive-header">
+                                <div class="sort-tabs mt-0 d-inline-block">
+                                    <h4>نمایش بر اساس:</h4>
+                                    <div class="nav-sort-tabs-res">
+                                        <ul class="nav sort-tabs-options sort-main" id="myTab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{% update_query sort_by='most-popular' %}" id="Most-Popular-tab" role="tab" aria-controls="Most-Popular" aria-selected="false">محبوب‌ترین</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{% update_query sort_by='newest' %}" id="newest-tab" role="tab" aria-controls="newest" aria-selected="false">جدیدترین</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{% update_query sort_by='cheapest' %}" id="cheapest-tab" role="tab" aria-controls="cheapest" aria-selected="false">ارزان‌ترین</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{% update_query sort_by='most-expensive' %}" id="most-expensive-tab" role="tab" aria-controls="most-expensive" aria-selected="false">گران‌ترین</a>
+                                            </li>
+                                        </ul>
+                                        <div class="archive-ordering-filter">
+                                            <div class="ordering">
+                                                <button class="btn btn-ordering" type="submit" data-toggle="modal" data-target="#ModalOrdering">
+                                                <span class="mdi mdi-sort"></span>
+                                                مرتب سازی</button>
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="ModalOrdering" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+                                                   <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalCenterTitle">مرتب سازی</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true" class="mdi mdi-close"></span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="nav-sort-tabs-res">
+                                                                <ul class="nav sort-tabs-options" id="myTab" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% update_query sort_by='most-popular' %}" id="Most-Popular-tab" role="tab" aria-controls="Most-Popular" aria-selected="false">محبوب‌ترین</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% update_query sort_by='newest' %}" id="newest-tab" role="tab" aria-controls="newest" aria-selected="false">جدیدترین</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% update_query sort_by='cheapest' %}" id="cheapest-tab" role="tab" aria-controls="cheapest" aria-selected="false">ارزان‌ترین</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% update_query sort_by='most-expensive' %}" id="most-expensive-tab" role="tab" aria-controls="most-expensive" aria-selected="false">گران‌ترین</a>
+                                        </li>
+                                    </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-primary">اعمال</button>
+                                                        </div>
+                                                        </div>
+                                                   </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-items d-block slider-products">
+                                <div class="card-body">
+                                    <div class="tab-content" id="myTabContent">
+                                            <div class="row">
+                                                <!--product item-->
+                                                {% for product in results %}
+                                                <div class="col-lg-3 col-md-3 col-xs-12 order-1 d-block mb-3">
+                                                    <section class="product-box product-box-hover">
+                                                        <div class="thumb">
+                                                            <!--product image and badge-->
+                                                            <a href="#" class="product-box-image" data-toggle="modal" data-target="#modal-{{ product.id }}">
+                                                                <img src="{{ product.images.first.file.url }}" alt="" class="swiper-lazy">
+                                                            </a>
+                                                        </div>
+                                                        <!--product image and badge end-->
+                                                        <!--product title-->
+                                                        <div class="title">
+                                                            <a href="#" class="product-box-title text-dark">{{ product.name }}</a>
+                                                        </div>
+                                                        <!--product title end-->
+                                                        <!--product content-->
+                                                        <div class="product-box-content">
+                                                            <!--price-->
+                                                            <div class="price">
+                                                                <del>
+                                                                    <span>{{ product.price }}<span>تومان</span></span>
+                                                                </del>
+                                                                <ins>
+                                                                    <span>{{ product.new_price }}<span>تومان</span></span>
+                                                                </ins>
+                                                            </div>
+                                                            <!--price end-->
+                                                            <!--action-->
+                                                            <div class="product-box-action">
+                                                                <form action="{% url 'cart:add_to_cart_in' product.id %}" method="post">
+                                                                    {% csrf_token %}{% if product.inventory == 0 %} <p>ناموجود</p> {% endif %}
+                                                                <button type="submit" class="btn btn-danger add-to-cart">
+                                                                    <i class="mdi mdi-plus"></i>
+                                                                    افزودن به سبد
+                                                                </button>
+                                                                </form>
+                                                            </div>
+                                                            <!--action end-->
+                                                        </div>
+                                                        <!--product content end-->
+                                                    </section>
+                                                </div>
+                                                {% empty %}
+                                                    <p>هیچ نتیجه ای یافت نشد </p>
+
+                                                {% endfor %}
+                                        </div>
+
+            <!-- Modal -->
+        {% for product in results %}
+            <div class="modal fade" id="modal-{{ product.id }}" tabindex="-1" role="dialog" aria-labelledby="modalLabel-{{ product.id }}" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-lg-6 col-md-6 col-xs-12 order-1 float-right">
+                            <div class="thum-img">
+                                <div class="swiper-container-more" id="swiper-container-{{ product.id }}">
+                                    <div class="swiper-wrapper">{% for img in product.images.all %}
+                                        <div class="swiper-slide">
+                                            <div class="item">
+                                                <a href="#" class="d-block hover-img-link" data-toggle="modal" data-target="#modal-{{ product.id }}">
+                                                    <img src="{{ img.file.url }}" class="img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>{% endfor %}
+                                    </div><br><br>
+                                    <!-- Add Pagination -->
+                                    <div class="swiper-pagination"></div>
+                                    <!-- Add Navigation -->
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-button-next"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-xs-12 order-2 float-right">
+                            <div class="product-box-modal-title">
+                                <h2 class="post-title">
+                                    <a href="#">
+                                        {{ product.name }}
+                                    </a>
+                                </h2>
+                            </div>
+                            <div class="small-gutters align-items-stretch mb-4">
+                                <div class="col-lg-5 pr-0 pl-0 float-right">
+                                    <div class="product-rate">
+                                        <p>❤️ تعداد لایک‌ها: {{ product.like_count }}</p>
+        {#                                                        <i class="fa fa-star active"></i>#}
+        {#                                                        <i class="fa fa-star active"></i>#}
+        {#                                                        <i class="fa fa-star active"></i>#}
+        {#                                                        <i class="fa fa-star active"></i>#}
+        {#                                                        <i class="fa fa-star active"></i>#}
+                                    </div>
+                                    <div class="product-box-modal_price">
+                                        <div class="price">
+                                            <del><span>{{ product.price }}<span>تومان</span></span></del>
+                                            <ins><span>{{ product.new_price }}<span>تومان</span></span></ins>
+                                        </div>
+                                    </div>
+                                <form action="{% url 'cart:add_to_cart_in' product.id %}" method="post">
+                                {% csrf_token %}
+                                    <div class="product-box_action">
+                                        <button class="btn btn-gradient-primary add-to-cart" type="submit">افزودن به سبد</button>
+                                    </div>{% if product.inventory == 0 %} <p>ناموجود</p> {% endif %}
+                                </form>
+                                </div>
+                                <div class="col-lg-7 pr-0 pl-0 float-right">
+                                    <div class="bg-gray-100 rounded">
+                                        <ul class="list-doted mb-0">
+                                            <li>{{ product.description }}</li>
+                                        </ul>
+                                    </div>
+                                    <div class="product-box_action">
+                                        <a href="{{ product.get_absolute_url }}" class="btn btn-outline-dark btn-block">مشاهده جزئیات</a>
+                                    </div>
+                                </div>
+                                <div class="small-gutters">
+                                    <div class="col-lg-12 mb-8 pr-0 pl-0 float-right mt-3">
+                                        <div class="justify-content-between">
+                                            <a href="{% url 'shop:product_comment' product.id %}" class="text-primary"><i class="fa fa-comment-o"></i>ثبت نظر</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>{% endfor %}
+                <div class="tab-pane fade" id="Most-Popular" role="tabpanel" aria-labelledby="Most-Popular-tab">
+                        <!--product item end-->
+            </div>
+
+            <div class="card-pagination-footer bg-white border-top">
+                        {% include "partials/pagination.html" with page=results query=query  %}
+            </div>
+
+            </div>
+            </div>
+            </div>
+        </div>
+            <!--product list wrap end-->
+        </div>
+        </div>
+        <!-- search end -->
+        </div></div>
+    </main>
+</body>
+<!-- plugin------------------------------------------------------------->
+<script src="{% static 'js/vendor/jquery-3.2.1.min.js'%}"></script>
+<script src="{% static 'js/vendor/popper.min.js'%}"></script>
+<script src="{% static 'js/vendor/bootstrap.min.js'%}"></script>
+<script src="{% static 'js/vendor/swiper-bundle.min.js'%}"></script>
+<script src="{% static 'js/vendor/theia-sticky-sidebar.min.js'%}"></script>
+<script src="{% static 'js/vendor/nouislider.min.js'%}"></script>
+<script src="{% static 'js/vendor/wNumb.js'%}"></script>
+<script src="{% static 'js/vendor/jgallery.min.js'%}"></script>
+<script src="{% static 'js/vendor/kamadatepicker.min.js'%}"></script>
+<!-- jquery-main-------------------------------------------------------->
+<script src="{% static 'js/main.js'%}"></script>
+
+</html>
+{% endblock %}

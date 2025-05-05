@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سبد خرید</title>
+    <!-- fonts-------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/vendor/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/materialdesignicons.css' %}">
+    <!-- plugin------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/kamadatepicker.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/jgallery.min.css' %}">
+    <!-- style-main--------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+</head>
+<body>
+    <!-- start-header -->
+    <header class="c-header">
+        <!-- logo -->
+        <div class="col-lg-3 d-inline-block">
+            <div class="logo row d-block text-center">
+                <a href="#">
+                    <img src="{% static 'images/logo.png' %}" alt="superkala" height="48">
+                    <div class="my-8 text-caption">فروشگاه اینترنتی اُکالا</div>
+                </a>
+            </div>
+        </div>
+        <!-- end-logo -->
+        <!--payment steps-->
+        <div class="payment-steps align-items-center">
+            <!--item-->
+            <a class="payment-steps-item active">
+                <div class="payment-steps-item-title">
+                    <img src="{% static 'images/cart/download.svg' %}" alt="cart-you" class="img-fluid">
+                    <div class="text-caption text-title">سبد خرید شما</div>
+                </div>
+                <div class="payment-steps-item-separator active"></div>
+            </a>
+            <!--item-->
+            <!--item-->
+            <a class="payment-steps-item active">
+                <div class="payment-steps-item-title">
+                    <img src="{% static 'images/cart/date.svg' %}" alt="cart-you" class="img-fluid">
+                    <div class="text-caption text-title">کِی و کجا؟</div>
+                </div>
+                <div class="payment-steps-item-separator active"></div>
+            </a>
+            <!--item-->
+            <!--item-->
+            <a class="payment-steps-item active">
+                <div class="payment-steps-item-title">
+                    <img src="{% static 'images/cart/payment.svg' %}" alt="cart-you" class="img-fluid">
+                    <div class="text-caption text-title">نحوه پرداخت</div>
+                </div>
+                <div class="payment-steps-item-separator active"></div>
+            </a>
+            <!--item-->
+            <!--item-->
+            <a class="payment-steps-item active">
+                <div class="payment-steps-item-title">
+                    <img src="{% static 'images/cart/order.svg' %}" alt="cart-you" class="img-fluid">
+                    <div class="text-caption text-title">تکمیل سفارش</div>
+                </div>
+            </a>
+            <!--item-->
+        </div>
+        <!--payment steps end-->
+    </header>
+    <!-- end-header -->
+    <!-- content-site -->
+    <main>
+        <div class="cart-main">
+            <div class="d-block">
+                <div class="main-container">
+                    <div class="col-12 float-right">
+                        <div class="p-content-cart">
+                            <div class="card-body">
+                                <div class="text-center">
+                                    <div class="icon-success">
+                                        <i class="mdi mdi-check"></i>
+                                    </div>
+                                    <div class="order-success">
+                                        <div class="h4 font-weight-bold mb-4">ثبت سفارش شما با موفقیت انجام شد</div>
+                                        <div class="font-weight-bold mb-12">پرداخت با موفقیت انجام شد. سفارش شما با موفقیت ثبت شد و در زمان تعیین شده برای شما ارسال خواهد شد.</div>
+                                    </div>
+                                    <div class="order-actions">
+                                        <a href="{% url 'account:profile_history' %}">
+                                        <button type="submit" class="btn btn-success btn-order-tracking"><i class="fa fa-shopping-bag"></i>
+                                            پیگیری سفارش
+                                        </button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- content-site -->
+    {% include 'partials/footer.html' %}
+    <!-- scroll-top -->
+    <div class="btn btn-danger scrolltop">
+        <i class="fa fa-angle-up"></i>
+        <div class="bg-caver-scroll"></div>
+    </div>
+</body>
+<!-- plugin------------------------------------------------------------->
+<script src="{% static 'js/vendor/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'js/vendor/popper.min.js' %}"></script>
+<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/vendor/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'js/vendor/kamadatepicker.min.js' %}"></script>
+<script src="{% static 'js/vendor/jgallery.min.js' %}"></script>
+<!-- jquery-main-------------------------------------------------------->
+<script src="{% static 'js/main.js' %}"></script>
+</html>

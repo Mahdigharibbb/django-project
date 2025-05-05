@@ -1,0 +1,161 @@
+{% load static %}
+{% block content %}
+<!-- start-header------------------------------->
+    <header class="d-block m-header">
+        <div class="main-container">
+            <section class="header-main-row align-items-center">
+                <div class="col-lg-8 col-xs-12 float-right">
+                    <div class="header-right">
+                        <!-- menuResponsive -->
+                        <nav class="sidebar">
+                            <div class="nav-header">
+                              <div class="header-cover"></div>
+                              <div class="logo-wrap">
+                                <a class="logo-icon" href="#"><img alt="logo-icon" src="{% static '/images/logo.png'%}" width="40" ></a>
+                              </div>
+                            </div>
+                        </nav>
+                        <div class="nav-btn nav-slider">
+                            <span class="linee1"></span>
+                            <span class="linee2"></span>
+                            <span class="linee3"></span>
+                        </div>
+                        <div class="overlay"></div>
+                        <!-- menuResponsive -->
+                        <!-- logo--------------------->
+                        <div class="col-lg-3 float-right">
+                            <div class="logo row d-block text-right">
+                                <a href="">
+                                    <img src="{% static '/images/logo.png'%}" alt="superkala" height="48">
+                                </a>
+                            </div>
+                        </div>
+                        <!-- end-logo--------------------->
+                        <!-- search----------------------->
+                        <div class="col-lg-9 float-left">
+                            <div class="search text-right row">
+                                <div class="search-box">
+                                    <form class="form-search" id="frmSearch" action="{% url 'shop:search' %}" method="get">
+                                        <input type="search" class="input-search" id="search-field" name="query" placeholder="برند، کالا و یا دسته بندی مورد نظر خود را جستجو کنید" value="{{ request.GET.query }}">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-search" type="submit">
+                                                <img src="{% static '/images/search.png'%}" alt="search" width="27">
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end-search----------------------->
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xs-12 float-left">
+                    <div class="header-left">
+                        <div class="header-account text-left">
+                            <div class="account-box">
+                                <!--login dropdown-->
+                                {% if request.user.is_authenticated %}
+                                <div class="dropdown dropdown-account d-inline-block">
+                                    <button class="btn btn-secondary dropdown-toggle btn-account" type="button" id="dropdownMenuButtonaccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img src="{% static '/images/man.png'%}" alt="account" width="32">
+                                        <span>{{ request.user.first_name }}</span>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonaccount">
+                                      <a class="dropdown-item" href="{% url 'account:profile' %}"><img src="{% static '/images/account-header/user.png'%}" alt="user" width="25"> پروفایل</a>
+                                      <a class="dropdown-item" href="{% url 'account:profile_history' %}"><img src="{% static '/images/account-header/shop.png'%}" alt="shop" width="25"> تاریخچه خرید</a>
+                                      <a class="dropdown-item" href="{% url 'account:logout' %}"><img src="{% static '/images/account-header/exit.png'%}" alt="exit" width="25"> خروج</a>
+                                    </div>
+                                </div>
+                                {% else %}
+                                <div class="dropdown dropdown-account d-inline-block">
+                                        <img src="{% static '/images/man.png'%}" alt="account" width="32">
+                                        <a href="{% url 'account:login' %}"> ورود </a>
+                                        <span>/</span>
+                                        <a href="{% url 'account:register' %}"> ثبت نام&nbsp;&nbsp;&nbsp;&nbsp; </a>
+                                </div>
+                            {% endif %}
+                                <!--login dropdown end-->
+                                <!--shopping cart-->
+                                {% with item_count=cart|length %}
+                                    <a href="{% url 'cart:cart_detail' %}">
+                                <button type="submit" class="btn btn-shopping-bag">
+                                    <span class="d-xl-inline mr-8">
+                                        <div class="shopping-bag-item topCartCount">{{ item_count }} </div>
+                                        <i class="mdi mdi-shopping"></i>
+                                        <span class="title-cart">سبد خرید</span>
+                                    </span>
+                                </button>
+                                    </a>
+                                {% endwith %}
+                                <!--shopping cart end-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- nav-bar -->
+            <nav class="navbar">
+                <div class="d-block">
+                    <!-- menu -->
+                    <ul class="navbar-ul">
+                        <li id="nav-menu-item" class="nav-item mega-dropdown nav-overlay">
+                            <a href="#" class="nav-link">لیست محصولات</a>
+                            <!-- mega menu -->
+                            <ul class="mega-menu">
+                                <!--mega-menu container-->
+                                <div class="mega-menu-container">
+                                    <div class="float-right pr-0">
+                                        <div class="mega-menu-category">
+                                            {% for ct in categories %}
+                                                <li class="menu-mega-item menu-item-type-mega-menu">
+                                                    <a class="mega-menu-link">{{ ct.name }}</a>
+                                                <ul class="mega-menu-sublist-row">
+                                                    <div class="col-lg-3 float-right" style="display:block;">
+                                                        <!--title-->
+                                                        {% for product in products %}
+                                                            {% if product.category == ct %}
+                                                            <li class="mega-menu-sublist-item">
+                                                                <a class="mega-menu-sublist-title" href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                                                            </li>
+                                                            <!--title-->
+                                                            <!--link item-->
+                                                            <li class="mega-menu-sublist-item">
+                                                                <a class="mega-menu-sublist-link">{{ product.description }}</a>
+                                                            </li>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </div>
+
+{#                                                    <!--show more-->#}
+{#                                                    <div class="mega-menu-sublist-more">#}
+{#                                                        <a href="#"><i class="mdi mdi-plus"></i>#}
+                                                        {#    مشاهده موارد بیشتر#}
+{#                                                        </a>#}
+{#                                                    </div>#}
+{#                                                    <!--show more-->#}
+                                                </ul>
+                                            </li>{% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--mega-menu container-->
+                            </ul>
+                            <!-- mega menu -->
+                        </li>
+                        <li id="nav-menu-item" class="nav-item mega-dropdown nav-overlay">
+                            <a href="{% url 'shop:product_list' %}#pt" class="nav-link">دارای تخفیف</a></li>
+                        <li id="nav-menu-item" class="nav-item mega-dropdown nav-overlay">
+                            <a href="{% url 'shop:product_list' %}#ps" class="nav-link">محبوبترین ها</a></li>
+                        <li id="nav-menu-item" class="nav-item mega-dropdown nav-overlay">
+                            <a href="{% url 'shop:product_list' %}#pn" class="nav-link">پوشاک</a></li>
+                    </ul>
+                    <!-- menu -->
+                </div>
+            </nav>
+            <!-- nav-bar -->
+        </div>
+        <div class="offcanvas-overlay"></div>
+    </header>
+    <div class="nav-categories-overlay"></div>
+    <!-- end-header -->
+{% endblock %}

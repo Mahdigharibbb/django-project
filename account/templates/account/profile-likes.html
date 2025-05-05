@@ -1,0 +1,97 @@
+{% extends 'parent/base.html' %}
+{% load static %}
+{% block title %}پروفایل{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت کارت بانکی</title>
+    <!-- fonts-------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/vendor/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/materialdesignicons.css' %}">
+    <!-- plugin------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/kamadatepicker.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/jgallery.min.css' %}">
+    <!-- style-main--------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+</head>
+<body>
+    <!-- content-site -->
+    <main>
+        <div class="main-container">
+            {% include 'partials_account/header.html' %}
+            <!--header content-->
+            <div class="col-lg-9 col-md-8 col-xs-12 float-left order-1">
+                <div class="card-body">
+                    <div class="profile-wrapper">
+                        <div class="card">
+                            <!--card header-->
+                            <div class="card-header">
+                                <div class="card-header-caption">
+                                    <div class="card-header-caption-title">
+                                        <div class="card-header-caption-text">محصولات پسندیده</div>
+                                    </div>
+                                </div>
+                            </div><br>
+                            <!--card header end-->
+
+                            <!-- slider-products -->
+                            <div class="slider-products">
+                                <div style="width: 150%;"  class="swiper-container-product">
+                                    <div class="swiper-wrapper">
+                                        {% for product in liked_products %}
+                                            <div class="swiper-slide">
+                                                <div class="item">
+                                                    <a href="{% url 'shop:product_detail' product.id product.slug  %}" class="d-block hover-img-link">
+                                                        <img src="{{ product.images.first.file.url }}" class="img-fluid" alt="">
+                                                    </a>
+                                                    <h2 class="post-title">
+                                                        <a href="{% url 'shop:product_detail' product.id product.slug  %}">
+                                                            {{ product.name }}
+                                                        </a>
+                                                    </h2>
+                                                    <div class="price">
+                                                        <del><span>{{ product.price }}<span>تومان</span></span></del>
+                                                        <ins><span>{{ product.new_price }}<span>تومان</span></span></ins>
+                                                    </div>
+                                                    <form action="{% url 'cart:add_to_cart_in' product.id %}" method="post">
+                                                        {% csrf_token %}
+                                                        <div class="product-box-action">
+                                                            <button class="btn btn-gradient-primary add-to-cart" type="submit">
+                                                                <i class="mdi mdi-plus-circle"></i>
+                                                                افزودن به سبد
+                                                            </button>
+                                                        </div></form>
+                                                </div>
+                                            </div>{% endfor %}
+                                        <div class="swiper-button-next"></div>
+                                        <div class="swiper-button-prev"></div>
+                                    </div>
+                                </div>
+                            </div>
+            <!--header content-->
+        </div>
+    </main>
+    <!-- content-site -->
+    <!-- scroll-top -->
+    <div class="btn btn-danger scrolltop">
+        <i class="fa fa-angle-up"></i>
+        <div class="bg-caver-scroll"></div>
+    </div>
+</body>
+<!-- plugin------------------------------------------------------------->
+<script src="{% static 'js/vendor/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'js/vendor/popper.min.js' %}"></script>
+<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/vendor/swiper-bundle.min.js'%}"></script>
+<script src="{% static 'js/vendor/kamadatepicker.min.js' %}"></script>
+<script src="{% static 'js/vendor/jgallery.min.js' %}"></script>
+<!-- jquery-main-------------------------------------------------------->
+<script src="{% static 'js/main.js '%}"></script>
+</html>
+{% endblock %}

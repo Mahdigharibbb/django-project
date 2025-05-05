@@ -1,0 +1,286 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سبد خرید</title>
+    <!-- fonts-------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/vendor/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/materialdesignicons.css' %}">
+    <!-- plugin------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/kamadatepicker.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/jgallery.min.css' %}">
+    <!-- style-main--------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+</head>
+<body>
+    <!-- start-header -->
+    <header class="c-header">
+        <!-- logo -->
+        <div class="col-lg-3 d-inline-block">
+            <div class="logo row d-block text-center">
+                <a href="#">
+                    <img src="{% static 'images/logo.png' %}" alt="superkala" height="48">
+                    <div class="my-8 text-caption">فروشگاه اینترنتی اُکالا</div>
+                </a>
+            </div>
+        </div>
+        <!-- end-logo -->
+        <!--payment steps-->
+        <div class="payment-steps align-items-center">
+            <!--item-->
+            <a class="payment-steps-item active">
+                <div class="payment-steps-item-title">
+                    <img src="{% static 'images/cart/download.svg' %}" alt="cart-you" class="img-fluid">
+                    <div class="text-caption text-title">سبد خرید شما</div>
+                </div>
+                <div class="payment-steps-item-separator active"></div>
+            </a>
+            <!--item-->
+            <!--item-->
+            <a class="payment-steps-item active">
+                <div class="payment-steps-item-title">
+                    <img src="{% static 'images/cart/date.svg' %}" alt="cart-you" class="img-fluid">
+                    <div class="text-caption text-title">کِی و کجا؟</div>
+                </div>
+                <div class="payment-steps-item-separator active"></div>
+            </a>
+            <!--item-->
+            <!--item-->
+            <a class="payment-steps-item active">
+                <div class="payment-steps-item-title">
+                    <img src="{% static 'images/cart/payment.svg' %}" alt="cart-you" class="img-fluid">
+                    <div class="text-caption text-title">نحوه پرداخت</div>
+                </div>
+                <div class="payment-steps-item-separator"></div>
+            </a>
+            <!--item-->
+            <!--item-->
+            <a class="payment-steps-item">
+                <div class="payment-steps-item-title">
+                    <img src="{% static 'images/cart/order.svg' %}" alt="cart-you" class="img-fluid">
+                    <div class="text-caption text-title">تکمیل سفارش</div>
+                </div>
+            </a>
+            <!--item-->
+        </div>
+        <!--payment steps end-->
+    </header>
+    <!-- end-header -->
+    <!-- content-site -->
+    <main>
+    <form method="post" action="{% url 'cart:cart_payment_method' product.id %}">
+        {% csrf_token %}
+            {{ form.as_p }}
+        <div class="cart-main">
+            <div class="d-block">
+                <div class="main-container">
+                    <div class="col-lg-8 col-md-8 col-xs-12 float-right">
+                        <div class="p-content-cart">
+                            <div class="cart-title-top h5 mb-3">انتخاب نحوه‌ پرداخت</div>
+                            <div class="shipping-time">نحوه پرداخت خود را انتخاب نمایید</div>
+                            <div class="card-body card-body-paym-metd">
+                                <div class="accordion" id="accordionExample">
+                                    <div class="card">
+                                      <div class="card-header pr-0" id="headingOne">
+                                        <h2 class="mb-0 pr-3 pt-2">
+                                          <button class="btn btn-block text-right pr-0" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+                                            <div class="radio-col mt-2">
+                                                <label for="#" class="outline-radio">
+                                                    <input type="radio" name="payment_method" id="online-payment" disabled value="online">
+                                                    <span class="outline-radio-check"></span>
+                                                </label>
+                                                <label for="online-payment" class="shipping-totals-title-row">
+                                                    <div class="shipping-totals-title">پرداخت آنلاین</div>
+                                                </label>
+                                            </div>
+                                          </button>
+                                        </h2>
+                                      </div>
+
+                                      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                          <!-- item -->
+                                          <div class="box-option d-inline-block">
+                                              <p style="color: #9a9a9a; font-size: 14px;">این روش فعلا موجود نمیباشد لطفا روش دیگری برای پرداخت انتخاب کنید</p>
+                                          </div>
+                                          <!-- item -->
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="card">
+                                      <div class="card-header pr-0" id="headingTwo">
+                                        <h2 class="mb-0 pr-3 pt-2">
+                                          <button class="btn btn-block text-right collapsed pr-0" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            <div class="radio-col mt-2">
+                                                <label for="#" class="outline-radio">
+                                                    <input type="radio" name="payment_method" required id="Payment-on-spot" value="cod">
+                                                    <span class="outline-radio-check"></span>
+                                                </label>
+                                                <label for="Payment-on-spot" class="shipping-totals-title-row">
+                                                    <div class="shipping-totals-title">پرداخت در محل</div>
+                                                </label>
+                                            </div>
+                                          </button>
+                                        </h2>
+                                      </div>
+                                    </div>
+                                    <div class="card">
+                                      <div class="card-header pr-0" id="headingThree">
+                                        <h2 class="mb-0 pr-3 pt-2">
+                                          <button class="btn btn-block text-right collapsed pr-0" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            <div class="radio-col mt-2">
+                                                <label for="#" class="outline-radio">
+                                                    <input type="radio" name="payment_method" id="Wallet" value="bank">
+                                                    <span class="outline-radio-check"></span>
+                                                </label>
+                                                <label for="Wallet" class="shipping-totals-title-row">
+                                                    <div class="shipping-totals-title">کارت به کارت</div>
+                                                </label>
+                                            </div>
+                                          </button>
+                                        </h2>
+                                      </div>
+                                      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                        <div class="card-body-text pr-1">
+                                            <div class="text-shipping-totals">
+                                                <p>مهدی غریب:
+                                                    <span class="text-danger h5 customer-credit">0000-0000-0000-0000</span>
+                                                    بعد از واریز عکس فیش را به پشتیبانی ارسال کنید
+                                                </p>
+                                            </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="p-content-cart">
+                            <div class="cart-title-top h5 mb-2">کد تخفیف</div>
+                            <div class="shipping-time">در صورت داشتن کد تخفیف آن را در این محل و قبل از اعمال دکمه تایید نهایی وارد نمایید</div>
+                            <div class="card-body card-body-paym-metd">
+                                <div class="form-group m-0">
+                                    <div class="input-group">
+                                        <input id="discount-code" type="text" name="discount_amount" class="form-control" placeholder="کد تخفیف خود را وارد نمایید ...">
+                                        <div class="input-group-append">
+                                            <button id="apply-discount" data-add="1" class="btn  btn-gradient-secondary btn-actions" type="button">اعمال کد</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p id="discount-message"></p>
+                            </div>
+                        </div>
+                        <!--back-->
+                        <a href="{% url 'cart:cart_address' %}" class="btn btn-sm back-to-index">
+                            <i class="fa fa-angle-right"></i>
+                            بازگشت به صفحه قبل
+                        </a>
+                        <!--back-->
+                    </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-xs-12 float-left">
+                        <div class="p-sidebar-cart">
+                            <div class="cart-title-top h5 mb-3">جزئیات خرید</div>
+                            <div class="card-body">
+                                <ul class="sidebar-cart-ul">
+                                    <li class="sidebar-cart-item">
+                                        <span class="title">تعداد اقلام</span>
+                                        <span class="dec">{{ cart.item_count }} عدد</span>
+                                        <input type="hidden" name="item_count" value="{{ cart.item_count }}">
+                                    </li>
+                                    <li class="sidebar-cart-item">
+                                        <span class="title">جمع کل قبل از تخفیف</span>
+                                        <span class="dec">{{ cart.get_total_price }} تومان</span>
+                                        <input type="hidden" name="total_price" value="{{ cart.get_total_price }}">
+                                    </li>
+                                   <div class="discount-tag" style="{% if discount_amount > 0 %}display:block;{% else %}display:none;{% endif %}">
+                                        <li class="sidebar-cart-item">
+                                            <span class="title">تخفیف کد شما</span>
+                                            <span class="dec" id="discount-amount">{{ discount_amount }} تومان</span>
+                                            <input type="hidden" name="discount_amount" id="discount-amount-input" value="{{ discount_amount }}">
+                                        </li>
+                                    </div>
+
+                                    <li class="sidebar-cart-item">
+                                        <span class="title">سود شما از این خرید</span>
+                                        <span class="dec">{{ cart.get_off_price }} تومان</span>
+                                        <input type="hidden" name="off_price" value="{{ cart.get_off_price }}">
+                                    </li>
+                                    <li class="sidebar-cart-item mb-3">
+                                        <span class="title text-success">جمع کل بعد از تخفیف</span>
+                                        <span class="dec text-success final-price">{{ cart.get_final_price }} تومان</span>
+                                        <input type="hidden" name="final_price" class="final-price-input" value="{{ cart.get_final_price }}">
+                                    </li>
+                                    <li class="sidebar-cart-item mb-3">
+                                        <span class="title text-danger">مبلغ قابل پرداخت</span>
+                                        <span class="dec text-danger payable-price">{{ cart.get_final_price }} تومان</span>
+                                    </li>
+                                    <!--continue-->
+                                    <button type="submit" class="address-selection"> نهایی کردن سفارش </button>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </main>
+    <!-- content-site -->
+    {% include 'partials/footer.html' %}
+    <!-- scroll-top -->
+    <div class="btn btn-danger scrolltop">
+        <i class="fa fa-angle-up"></i>
+        <div class="bg-caver-scroll"></div>
+    </div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready(function() {
+        $("#apply-discount").click(function() {
+            var code = $("#discount-code").val();  // گرفتن مقدار کد تخفیف
+            console.log("📩 کد تخفیف ارسال شده:", code);
+            if (!code || code.trim() === "") {  // بررسی مقدار ورودی
+                $("#discount-message").text("لطفا کد تخفیف را وارد کنید.").css("color", "red");
+                return;
+            }
+            var productId = "{{ product.id }}";
+            var requestUrl = "{% url 'cart:cart_payment_method' product.id %}";
+
+            $.ajax({
+                url: requestUrl,
+                type: "GET",
+                data: { code: code },
+                dataType: "json",
+                success: function(response) {
+                    console.log("✅ پاسخ دریافت شد:", response);
+                    if (response.success) {
+                        $("#discount-message").text("تخفیف اعمال شد!").css("color", "green");
+                        $(".final-price").text(response.final_price + " تومان");
+                        $(".payable-price").text(response.final_price + " تومان");
+                        $("#discount-amount").text(response.discount_amount + " تومان");
+                        $(".discount-tag").show();
+                    } else {
+                        $("#discount-message").text(response.message).css("color", "red");
+                    }
+                },
+                error: function(xhr) {
+                    console.log("❌ خطای AJAX:", xhr.responseText);
+                    $("#discount-message").text("خطا در ارتباط با سرور. لطفا دوباره امتحان کنید.");
+                }
+            });
+        });
+    });
+</script>
+<!-- plugin------------------------------------------------------------->
+<script src="{% static 'js/vendor/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'js/vendor/popper.min.js' %}"></script>
+<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/vendor/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'js/vendor/kamadatepicker.min.js' %}"></script>
+<script src="{% static 'js/vendor/jgallery.min.js' %}"></script>
+<!-- jquery-main-------------------------------------------------------->
+<script src="{% static 'js/main.js' %}"></script>
+</html>

@@ -1,0 +1,495 @@
+{% extends 'parent/base.html' %}
+{% load static %}
+{% load shop_tags %}
+{% block title %}محصولات{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- fonts-------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/vendor/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/materialdesignicons.css'%}">
+    <!-- plugin------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/jgallery.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/swiper-bundle.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/noUISlider.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/kamadatepicker.min.css'%}">
+    <!-- style-main--------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css'%}">
+            <style>
+        .like-button {
+            font-size: 34px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- content-site -->
+    <main>
+        <div class="main-container">
+            <!-- single-product -->
+            <div class="col-12 pt-4 float-right">
+                <div class="product type-product">
+                    <!-- gallery -->
+                    <div class="col-lg-5 col-xs-12 float-right d-block">
+                        <section class="product-gallery">
+                            <div class="swiper-container-gallery gallery-top">
+                                <div class="swiper-wrapper">{% for img in product.images.all %}
+                                    <div class="swiper-slide">
+                                        <a href="#" class="d-block hover-img-link" data-toggle="modal" data-target="#modal-{{ product.id }}">
+                                            <img src="{{ img.file.url }}">
+                                        </a>
+                                    </div>{% endfor %}
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next swiper-button-white"></div>
+                                <div class="swiper-button-prev swiper-button-white"></div>
+                            </div>
+
+                            <div class="swiper-container-gallery gallery-thumbs">
+                                <div class="swiper-wrapper">{% for img in product.images.all %}
+                                    <div class="swiper-slide">
+                                        <img height="30px" src="{{ img.file.url }}">
+                                    </div>{% endfor %}
+                                </div>
+                            </div>
+                        </section>
+                        <!-- Modal -->
+                        <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- gallery end-->
+                    <!-- product-content -->
+                    <div class="col-lg-7 col-xs-12 float-left d-block">
+                        <section class="card product-info">
+                            <!--product wrap header-->
+                            <div class="product-headline">
+                                <h5 class="product-title float-right">
+                                    {{ product.name }}
+                                </h5><br><br>
+
+                                <div class="product-attributes d-inline-block">
+                                    <div class="product-config">
+                                        <span class="product-title-en">{{ product.description }}</span>
+                                    </div>
+                                </div>
+
+                                <ul class="nav-line-rate text-left mb-0">
+                                    <li class="nav-line-rate-item">
+                                        <div class="product-rate float-left" dir="ltr">
+                                            <p class="likes-count">❤️ تعداد لایک‌ها: {{ product.likes.count }}</p>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="product-wishes">
+                                    {% if user.is_authenticated %}
+                                            <button type="button" class="like-button" data-product-id="{{ product.id }}">
+                                                {% if user in product.likes.all %}
+                                                <span>❤️</span>{% else %}
+                                                <span style="color: #ccc">❤</span>{% endif %}
+                                            </button>
+                                        {% else %}
+                                        <button type="button" class="like-button" onclick="showLoginError()">
+                                            <span style="color: #ccc">❤</span>
+                                        </button>
+                                        <span id="login-error" style="display:none; color: red;">برای لایک کردن، ابتدا وارد شوید.</span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <!--product wrap header end-->
+                            <!--divider-->
+                            <hr>
+                            <!--divider end-->
+                            <!--branding wrap-->
+                            <div class="product-directory">
+                                <div class="row">
+                                    <div class="col-lg-6 float-right">
+                                        <div class="description-list description-list-horizontal">
+                                            <ul class="w-100 mb-0">
+                                                <li>
+                                                    <span>
+                                                        دسته بندی
+                                                    </span>
+                                                    <a href="#" class="product-link">{{ product.category }}</a>
+                                                </li>
+                                                {% for feature in product.features.all %}
+                                                <li>
+                                                    <span>
+                                                        {{ feature.name }}
+                                                    </span>
+                                                    <a href="#" class="product-link"> {{ feature.value }}</a>
+                                                </li>
+                                                {% endfor %}
+                                                <li>
+                                                    <span>
+                                                        موجودی
+                                                    </span>
+                                                    <a href="#" class="product-link"> {{ product.inventory }}</a>
+                                                </li>
+                                            <li>
+                                                    <span>
+                                                        قیمت
+                                                    </span>
+                                                    <div class="price float-left">
+                                                        <del>
+                                                            {{ product.price }}
+                                                            تومان
+                                                        </del>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <span>
+                                                        قیمت پس از نخفیف
+                                                    </span>
+                                                    <div class="price text-danger float-left">
+                                                        <ins>
+                                                            {{ product.new_price }}
+                                                            تومان
+                                                        </ins>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--product price-->
+                                {% if product.inventory >= 1 %}
+                                    <div class="col-lg-6 float-left mt-5">
+                                        <div class="subtitle1">
+                                            <div class="product-box-action text-left">
+                                                <form action="{% url 'cart:add_to_cart_in' product.id %}" method="post">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-danger btn-add-to-cart">افزودن به سبد</button>
+                                                </form>
+                                            </div>
+                                            <span class="text-muted d-block my-2 text-left">
+                                                افزودن به سبد خرید به معنای اتمام خرید نیست
+                                            </span>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                     <div class="col-lg-6 float-left mt-5">
+                                        <div class="subtitle1">
+                                            <div class="product-box-action text-left">
+                                                <button type="submit" class="btn btn-info btn-add-to-cart btn-gradient-secondary">موجود کن</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                            {% endif %}
+                            </div>
+                            <!--branding wrap end-->
+                        </section>
+                    </div>
+                    <!-- product-content-end -->
+                </div>
+            </div>
+            <div class="col-12 float-right">
+                <!-- slider-products -->
+                <div class="slider-products">
+                    <header class="card-header">
+                        <span class="title-one">کالاهای مشابه</span>
+                        <a class="card-title">مشاهده همه</a>
+                    </header>
+                    <div class="swiper-container-product">
+                        <div class="swiper-wrapper">{% for product in products_similar %}
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <a href="#" class="d-block hover-img-link" data-toggle="modal" data-target="#modal-{{ product.id }}">
+                                        <img src="{{ product.images.first.file.url }}" class="img-fluid" alt="">
+                                    </a>
+                                    <h2 class="post-title">
+                                        <a href="#" data-toggle="modal" data-target="#modal-{{ product.id }}">
+                                           {{ product.name }}
+                                        </a>
+                                    </h2>
+                                    <div class="price">
+                                        <del><span>{{ product.price }}<span>تومان</span></span></del>
+                                        <ins><span>{{ product.new_price }}<span>تومان</span></span></ins>
+                                    </div>
+                                    <div class="product-box-action">
+                                       <form action="{% url 'cart:add_to_cart_in' product.id %}" method="post">
+                                        {% csrf_token %}{% if product.inventory == 0 %} <p>ناموجود</p> {% endif %}
+                                        <button class="btn btn-gradient-primary add-to-cart" type="submit">
+                                            <i class="mdi mdi-plus-circle"></i>
+                                                افزودن به سبد
+                                        </button>
+                                       </form>
+                                    </div>
+                                </div>
+                            </div>{% endfor %}
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <!-- Modal -->
+            {% for product in products %}
+                <div class="modal fade" id="modal-{{ product.id }}" tabindex="-1" role="dialog" aria-labelledby="modalLabel-{{ product.id }}" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-lg-6 col-md-6 col-xs-12 order-1 float-right">
+                                <div class="thum-img">
+                                    <div class="swiper-container-more" id="swiper-container-{{ product.id }}">
+                                        <div class="swiper-wrapper">{% for img in product.images.all %}
+                                            <div class="swiper-slide">
+                                                <div class="item">
+                                                    <a href="#" class="d-block hover-img-link" data-toggle="modal" data-target="#modal-{{ product.id }}">
+                                                        <img src="{{ img.file.url }}" class="img-fluid" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>{% endfor %}
+                                        </div><br><br>
+                                        <!-- Add Pagination -->
+                                        <div class="swiper-pagination"></div>
+                                        <!-- Add Navigation -->
+                                        <div class="swiper-button-prev"></div>
+                                        <div class="swiper-button-next"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-xs-12 order-2 float-right">
+                                <div class="product-box-modal-title">
+                                    <h2 class="post-title">
+                                        <a href="#">
+                                            {{ product.name }}
+                                        </a>
+                                    </h2>
+                                </div>
+                                <div class="small-gutters align-items-stretch mb-4">
+                                    <div class="col-lg-5 pr-0 pl-0 float-right">
+                                        <div class="product-rate">
+                                            <p>❤️ تعداد لایک‌ها: {{ product.like_count }}</p>
+            {#                                                        <i class="fa fa-star active"></i>#}
+            {#                                                        <i class="fa fa-star active"></i>#}
+            {#                                                        <i class="fa fa-star active"></i>#}
+            {#                                                        <i class="fa fa-star active"></i>#}
+            {#                                                        <i class="fa fa-star active"></i>#}
+                                        </div>
+                                        <div class="product-box-modal_price">
+                                            <div class="price">
+                                                <del><span>{{ product.price }}<span>تومان</span></span></del>
+                                                <ins><span>{{ product.new_price }}<span>تومان</span></span></ins>
+                                            </div>
+                                        </div>
+                                    <form action="{% url 'cart:add_to_cart_in' product.id %}" method="post">
+                                    {% csrf_token %}
+                                        <div class="product-box_action">
+                                            <button class="btn btn-gradient-primary add-to-cart" type="submit">افزودن به سبد</button>
+                                        </div>
+                                    </form>
+                                    </div>
+                                    <div class="col-lg-7 pr-0 pl-0 float-right">
+                                        <div class="bg-gray-100 rounded">
+                                            <ul class="list-doted mb-0">
+                                                <li>{{ product.description }}</li>
+                                            </ul>
+                                        </div>
+                                        <div class="product-box_action">
+                                            <a href="{{ product.get_absolute_url }}" class="btn btn-outline-dark btn-block">مشاهده جزئیات</a>
+                                        </div>
+                                    </div>
+                                    <div class="small-gutters">
+                                        <div class="col-lg-12 mb-8 pr-0 pl-0 float-right mt-3">
+                                            <div class="justify-content-between">
+                                                <a href="{% url 'shop:product_comment' product.id %}" class="text-primary"><i class="fa fa-comment-o"></i>ثبت نظر</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>{% endfor %}
+            </div>
+                <!-- slider-products -->
+                <!--products comments and description-->
+                <div class="card mb-3">
+                    <div class="tabs">
+                        <div class="card-header card-header-tab px-0 mr-0">
+                            <div class="tab-box">
+                                <ul class="tab nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active show" id="User-comments-tab" data-toggle="tab" href="#User-comments" role="tab" aria-controls="User-comments" aria-selected="true">
+                                            <i class="mdi mdi-comment-text-multiple-outline"></i>
+                                            نظرات کاربران
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="tabs-content">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade active show" id="User-comments" role="tabpanel" aria-labelledby="User-comments-tab">
+                                    <div class="comments">
+                                        <!--star-->
+                                        <div class="col-lg-6 col-md-6 col-xs-12 float-right">
+                                            <div class="comments-summary-box">
+                                                <div class="summary-box-item d-inline-block">
+                                                    <div class="summary-headline">تعداد نظرات کاربران</div>
+                                                    <div class="summary-icon-vote">
+                                                        <i class="fa fa-star"></i>
+                                                        <span class="title-vote text-white">{% total_comment product %}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--star end-->
+                                        <!--divider-->
+                                        <div class="divider-vertical"></div>
+                                        <!--divider-->
+                                        <!--write comment button-->
+                                        <div class="col-lg-6 col-md-6 col-xs-12 float-left">
+                                            <div class="comments-summary-note">
+                                                <h6 class="mb-3">آیا از این محصول استفاده کرده اید؟</h6>
+                                                <a href="{% url 'shop:product_comment' product.id %}" class="btn-add-comment btn btn-danger">ثبت نظر</a>
+                                            </div>
+                                        </div>
+                                        <!--write comment button end-->
+                                        <!-- comments -->
+                                        <div class="product-comment-list" id="comment_list">
+                                            <ul class="comment-list">{% for cm in comments %}
+                                                <!-- comments-item -->
+                                                <li>
+                                                    <div class="comments-user-shopping">
+                                                        <small>توسط</small>
+                                                        <span>{{ cm.name }}</span>
+                                                        <div class="cell-date">
+                                                            {{ cm.created }}<br><br>
+                                                            <div class="product-rate float-left mr-3" dir="ltr">
+{#                                                                <i class="fa fa-star active"></i>#}
+{#                                                                <i class="fa fa-star active"></i>#}
+{#                                                                <i class="fa fa-star active"></i>#}
+{#                                                                <i class="fa fa-star"></i>#}
+{#                                                                <i class="fa fa-star"></i>#}
+                                                                {% if user in product.likes.all %}
+                                                                   <h6>  محصول را لایک کرده</h6>
+                                                                {% else %}
+                                                                    <h6>  محصول را لایک نکرده</h6>
+                                                                {% endif %}
+                                                            </div>
+                                                        </div>
+                                                        <p class="dec">{{ cm.body }}</p>
+                                                    </div>
+                                                </li>{% endfor %}
+                                                <!-- comments-item end-->
+
+                                                <!-- comments-item end-->
+                                            </ul>
+                                        </div>
+                                        <!-- comments end -->
+                                    </div>
+                                </div>
+                            </div>
+                    </div><button id="load-more">بارگزاری بیشتر</button>
+                </div>
+            </div>
+    </main>
+    <!-- content-site -->
+    <!-- scroll-top -->
+    <div class="btn btn-danger scrolltop">
+        <i class="fa fa-angle-up"></i>
+        <div class="bg-caver-scroll"></div>
+    </div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready(function(){
+        var page = 2;
+        $('#load-more').click(function(){
+            $.ajax({
+                type: 'GET',
+                url: "{% url 'shop:product_detail' product.id product.slug %}" + "?page=" + page,
+                dataType: 'html',
+                success: function(data){
+                     if (data.trim().length > 0) {
+                        $('#comment_list').append(data);
+                        page += 1;
+                    }if (data.trim().length === 0) {
+                        $('#load-more').prop('disabled', true).text('دیگر کامنتی برای نمایش وجود ندارد');
+                    }
+                }
+            });
+        });
+    });
+</script>
+<script>
+    function showLoginError() {
+        document.getElementById("login-error").style.display = "block";
+        setTimeout(() => {
+            document.getElementById("login-error").style.display = "none";
+        }, 3000);  // پیام بعد از ۳ ثانیه حذف می‌شود
+    }
+$(document).ready(function() {
+    $('.like-button').click(function() {
+
+        if (!{{ user.is_authenticated|yesno:"true,false" }}) {
+            $('#login-error').show(); // نمایش پیام خطا
+            return; // جلوگیری از ارسال درخواست AJAX
+        }
+
+        var product_id = $(this).data('product-id');
+        var button = $(this);
+        {#var csrfToken = '{{ csrf_token }}';#}
+
+        $.ajax({
+            type: 'POST',
+            url: '{% url 'shop:like_post' %}',
+            data: {'product_id': product_id, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+            success: function (data){
+                if (data.liked){
+                    button.html('<span>❤️</span>');
+                } else {
+                    button.html('<span style="color: #ccc">❤</span>');
+                }
+                button.closest('.product').find('.likes-count').text('❤️ تعداد لایک‌ها: ' + data.likes_count);
+            },
+            error: function(xhr, status, error) {
+                console.error("خطا در AJAX:", error);
+            }
+        });
+    });
+});
+</script>
+<!-- plugin------------------------------------------------------------->
+<script src="{% static 'js/vendor/jquery-3.2.1.min.js'%}"></script>
+<script src="{% static 'js/vendor/jgallery.min.js'%}"></script>
+<script src="{% static 'js/vendor/popper.min.js'%}"></script>
+<script src="{% static 'js/vendor/bootstrap.min.js'%}"></script>
+<script src="{% static 'js/vendor/swiper-bundle.min.js'%}"></script>
+<script src="{% static 'js/vendor/theia-sticky-sidebar.min.js'%}"></script>
+<script src="{% static 'js/vendor/nouislider.min.js'%}"></script>
+<script src="{% static 'js/vendor/wNumb.js'%}"></script>
+<script src="{% static 'js/vendor/blowup.min.js'%}"></script>
+<script src="{% static 'js/vendor/kamadatepicker.min.js'%}"></script>
+<!-- jquery-main-------------------------------------------------------->
+<script src="{% static 'js/main.js'%}"></script>
+<script src="{% static 'js/ajax.js' %}"></script>
+
+</html>
+{% endblock %}
+

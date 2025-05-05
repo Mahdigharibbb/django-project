@@ -1,0 +1,28 @@
+    <ul class="comment-list">{% for cm in comments %}
+        <!-- comments-item -->
+        <li>
+            <div class="comments-user-shopping">
+                <small>توسط</small>
+                <span>{{ cm.name }}</span>
+                <div class="cell-date">
+                    {{ cm.created }}<br><br>
+                    <div class="product-rate float-left mr-3" dir="ltr">
+{#                                                                <i class="fa fa-star active"></i>#}
+{#                                                                <i class="fa fa-star active"></i>#}
+{#                                                                <i class="fa fa-star active"></i>#}
+{#                                                                <i class="fa fa-star"></i>#}
+{#                                                                <i class="fa fa-star"></i>#}
+                        {% if user in product.likes.all %}
+                           <h6>  محصول را لایک کرده</h6>
+                        {% else %}
+                            <h6>  محصول را لایک نکرده</h6>
+                        {% endif %}
+                    </div>
+                </div>
+                <p class="dec">{{ cm.body }}</p>
+            </div>
+        </li>{% endfor %}
+        <!-- comments-item end-->
+
+        <!-- comments-item end-->
+    </ul>

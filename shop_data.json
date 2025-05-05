@@ -1,0 +1,2567 @@
+[
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2025-01-30T16:40:34.041Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "1",
+        "object_repr": "Category object (1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2025-01-30T16:57:09.583Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "2",
+        "object_repr": "Category object (2)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2025-01-30T17:10:06.059Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "1",
+        "object_repr": "رضا",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u062a\\u0635\\u0648\\u06cc\\u0631\", \"object\": \"Image object (1)\"}}, {\"added\": {\"name\": \"product feature\", \"object\": \"\\u062c\\u0646\\u0633:\\u067e\\u0627\\u0631\\u0686\\u0647\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2025-01-30T17:31:31.446Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "1",
+        "object_repr": "تیشرت",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0646\\u0627\\u0645\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2025-01-30T17:33:07.640Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "2",
+        "object_repr": "شلوار",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u062a\\u0635\\u0648\\u06cc\\u0631\", \"object\": \"Image object (2)\"}}, {\"added\": {\"name\": \"product feature\", \"object\": \"\\u062c\\u0646\\u0633:\\u0686\\u0631\\u0645\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2025-01-30T17:33:31.858Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "1",
+        "object_repr": "تیشرت",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0642\\u06cc\\u0645\\u062a \\u067e\\u0633 \\u0627\\u0632 \\u062a\\u062e\\u0641\\u06cc\\u0641\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2025-02-02T15:41:53.629Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "1",
+        "object_repr": "09919318166",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Address\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2025-02-08T16:46:25.166Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "1",
+        "object_repr": "لباس",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2025-02-08T16:46:43.915Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "1",
+        "object_repr": "لباس",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2025-02-08T16:47:50.409Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "1",
+        "object_repr": "لباس",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Name\", \"Slug\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2025-02-08T16:48:26.836Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "2",
+        "object_repr": "شلوار لی",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0646\\u0627\\u0645\", \"\\u0627\\u0633\\u0644\\u0627\\u06af\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2025-02-09T15:45:55.838Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "3",
+        "object_repr": "کفش",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2025-02-09T18:03:17.148Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "3",
+        "object_repr": "مام استایل",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u062a\\u0635\\u0648\\u06cc\\u0631\", \"object\": \"Image object (3)\"}}, {\"added\": {\"name\": \"product feature\", \"object\": \"\\u0645\\u062f\\u0644:\\u0645\\u0627\\u0645 \\u0627\\u0633\\u062a\\u0627\\u06cc\\u0644\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2025-02-10T14:36:19.046Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "4",
+        "object_repr": "کتاب",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2025-02-10T14:37:39.359Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "5",
+        "object_repr": "موبایل",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2025-02-10T14:52:06.782Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "4",
+        "object_repr": "هودی",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u062a\\u0635\\u0648\\u06cc\\u0631\", \"object\": \"Image object (4)\"}}, {\"added\": {\"name\": \"product feature\", \"object\": \"\\u062c\\u0646\\u0633:\\u0646\\u062e \\u067e\\u0646\\u0628\\u0647\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2025-02-10T14:57:55.791Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "5",
+        "object_repr": "دورس",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u062a\\u0635\\u0648\\u06cc\\u0631\", \"object\": \"Image object (5)\"}}, {\"added\": {\"name\": \"product feature\", \"object\": \"\\u0648\\u0632\\u0646:200\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2025-02-10T15:01:31.017Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "5",
+        "object_repr": "دورس",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u062a\\u062e\\u0641\\u06cc\\u0641\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2025-02-10T15:01:37.679Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "5",
+        "object_repr": "دورس",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u062a\\u062e\\u0641\\u06cc\\u0641\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2025-02-10T15:01:48.682Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "4",
+        "object_repr": "هودی",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2025-02-10T15:01:56.201Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "3",
+        "object_repr": "مام استایل",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2025-02-10T15:04:22.811Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "6",
+        "object_repr": "اسلش",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u062a\\u0635\\u0648\\u06cc\\u0631\", \"object\": \"Image object (6)\"}}, {\"added\": {\"name\": \"product feature\", \"object\": \"\\u062c\\u0646\\u0633:\\u0627\\u0633\\u0644\\u0634\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2025-02-10T15:06:29.172Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "7",
+        "object_repr": "کتان",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u062a\\u0635\\u0648\\u06cc\\u0631\", \"object\": \"Image object (7)\"}}, {\"added\": {\"name\": \"product feature\", \"object\": \"\\u062c\\u0646\\u0633:\\u06a9\\u062a\\u0627\\u0646\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2025-02-10T15:08:01.124Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "8",
+        "object_repr": "پارچه ای",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u062a\\u0635\\u0648\\u06cc\\u0631\", \"object\": \"Image object (8)\"}}, {\"added\": {\"name\": \"product feature\", \"object\": \"\\u062c\\u0646\\u0633:\\u067e\\u0627\\u0631\\u0686\\u0647\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2025-02-10T15:10:31.256Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "9",
+        "object_repr": "کتاب داستان",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product feature\", \"object\": \"\\u062c\\u0646\\u0633:\\u06a9\\u0627\\u063a\\u0630\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2025-02-10T15:11:41.145Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "10",
+        "object_repr": "موفقیت",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u062a\\u0635\\u0648\\u06cc\\u0631\", \"object\": \"Image object (9)\"}}, {\"added\": {\"name\": \"product feature\", \"object\": \"\\u062c\\u0646\\u0633:\\u06a9\\u0627\\u063a\\u0630\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2025-02-10T15:14:08.677Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "11",
+        "object_repr": "سامسونگ",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u062a\\u0635\\u0648\\u06cc\\u0631\", \"object\": \"Image object (10)\"}}, {\"added\": {\"name\": \"product feature\", \"object\": \"\\u0645\\u062f\\u0644:\\u0633\\u0627\\u0645\\u0633\\u0648\\u0646\\u06af\"}}, {\"added\": {\"name\": \"product feature\", \"object\": \"\\u062d\\u0627\\u0641\\u0638\\u0647:1\\u062a\\u0631\\u0627\\u0628\\u0627\\u06cc\\u062a\"}}, {\"added\": {\"name\": \"product feature\", \"object\": \"\\u0648\\u0632\\u0646:100\\u06af\\u0631\\u0645\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+        "action_time": "2025-02-10T15:16:24.666Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "12",
+        "object_repr": "ایفون",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u062a\\u0635\\u0648\\u06cc\\u0631\", \"object\": \"Image object (11)\"}}, {\"added\": {\"name\": \"product feature\", \"object\": \"\\u0645\\u062f\\u0644:\\u0627\\u06cc\\u0641\\u0648\\u0646\"}}, {\"added\": {\"name\": \"product feature\", \"object\": \"\\u062f\\u0648\\u0631\\u0628\\u06cc\\u0646:3\"}}, {\"added\": {\"name\": \"product feature\", \"object\": \"\\u06a9\\u06cc\\u0641\\u06cc\\u062a:\\u0628\\u0627\\u0644\\u0627\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2025-02-10T15:17:46.071Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "13",
+        "object_repr": "هواوی",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u062a\\u0635\\u0648\\u06cc\\u0631\", \"object\": \"Image object (12)\"}}, {\"added\": {\"name\": \"product feature\", \"object\": \"\\u0645\\u062f\\u0644:\\u0647\\u0648\\u0627\\u0648\\u06cc\"}}, {\"added\": {\"name\": \"product feature\", \"object\": \"\\u062d\\u0627\\u0641\\u0638\\u0647:256\\u06af\\u06cc\\u06af\"}}, {\"added\": {\"name\": \"product feature\", \"object\": \"\\u0648\\u0632\\u0646:100\\u06af\\u0631\\u0645\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2025-02-10T15:21:13.748Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "14",
+        "object_repr": "نایک",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u062a\\u0635\\u0648\\u06cc\\u0631\", \"object\": \"Image object (13)\"}}, {\"added\": {\"name\": \"product feature\", \"object\": \"\\u0633\\u0627\\u06cc\\u0632:42\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2025-02-10T15:22:21.513Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "15",
+        "object_repr": "ادیداس",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u062a\\u0635\\u0648\\u06cc\\u0631\", \"object\": \"Image object (14)\"}}, {\"added\": {\"name\": \"product feature\", \"object\": \"\\u0633\\u0627\\u06cc\\u0632:43\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+        "action_time": "2025-02-10T15:23:15.322Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "16",
+        "object_repr": "جردن",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u062a\\u0635\\u0648\\u06cc\\u0631\", \"object\": \"Image object (15)\"}}, {\"added\": {\"name\": \"product feature\", \"object\": \"\\u0633\\u0627\\u06cc\\u0632:40\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+        "action_time": "2025-02-12T12:50:53.624Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "9",
+        "object_repr": "کتاب داستان",
+        "action_flag": 2,
+        "change_message": "[{\"added\": {\"name\": \"\\u062a\\u0635\\u0648\\u06cc\\u0631\", \"object\": \"Image object (16)\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+        "action_time": "2025-02-12T16:17:30.696Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "16",
+        "object_repr": "جردن",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u062a\\u062e\\u0641\\u06cc\\u0641\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+        "action_time": "2025-02-12T16:18:38.030Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "11",
+        "object_repr": "سامسونگ",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u062a\\u062e\\u0641\\u06cc\\u0641\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+        "action_time": "2025-02-12T16:18:47.380Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "3",
+        "object_repr": "مام استایل",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u062a\\u062e\\u0641\\u06cc\\u0641\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+        "action_time": "2025-02-12T16:19:18.655Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "9",
+        "object_repr": "کتاب داستان",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u062a\\u062e\\u0641\\u06cc\\u0641\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+        "action_time": "2025-02-12T16:20:19.595Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "1",
+        "object_repr": "تیشرت",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"name\": \"\\u062a\\u0635\\u0648\\u06cc\\u0631\", \"object\": \"Image object (1)\", \"fields\": [\"File\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 39,
+    "fields": {
+        "action_time": "2025-02-12T16:20:47.483Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "1",
+        "object_repr": "تیشرت",
+        "action_flag": 2,
+        "change_message": "[{\"added\": {\"name\": \"\\u062a\\u0635\\u0648\\u06cc\\u0631\", \"object\": \"Image object (17)\"}}, {\"changed\": {\"name\": \"\\u062a\\u0635\\u0648\\u06cc\\u0631\", \"object\": \"Image object (1)\", \"fields\": [\"File\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 40,
+    "fields": {
+        "action_time": "2025-02-14T16:50:57.066Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "3",
+        "object_repr": "09121212121",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Address\", \"Is staff\", \"Superuser status\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 41,
+    "fields": {
+        "action_time": "2025-02-14T16:52:43.363Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "3",
+        "object_repr": "09121212121",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 42,
+    "fields": {
+        "action_time": "2025-02-14T16:52:48.172Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "3",
+        "object_repr": "09121212121",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 43,
+    "fields": {
+        "action_time": "2025-02-18T17:08:34.459Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "2",
+        "object_repr": "شلوار",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Slug\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 44,
+    "fields": {
+        "action_time": "2025-02-18T17:09:54.259Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "2",
+        "object_repr": "شلوار",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": 1,
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": 1,
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": 1,
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+        "name": "Can view log entry",
+        "content_type": 1,
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+        "name": "Can add permission",
+        "content_type": 2,
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+        "name": "Can change permission",
+        "content_type": 2,
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": 2,
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+        "name": "Can view permission",
+        "content_type": 2,
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+        "name": "Can add group",
+        "content_type": 3,
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+        "name": "Can change group",
+        "content_type": 3,
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+        "name": "Can delete group",
+        "content_type": 3,
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+        "name": "Can view group",
+        "content_type": 3,
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+        "name": "Can add user",
+        "content_type": 4,
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+        "name": "Can change user",
+        "content_type": 4,
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+        "name": "Can delete user",
+        "content_type": 4,
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+        "name": "Can view user",
+        "content_type": 4,
+        "codename": "view_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+        "name": "Can add content type",
+        "content_type": 5,
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+        "name": "Can change content type",
+        "content_type": 5,
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": 5,
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+        "name": "Can view content type",
+        "content_type": 5,
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+        "name": "Can add session",
+        "content_type": 6,
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+        "name": "Can change session",
+        "content_type": 6,
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+        "name": "Can delete session",
+        "content_type": 6,
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+        "name": "Can view session",
+        "content_type": 6,
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+        "name": "Can add product",
+        "content_type": 7,
+        "codename": "add_product"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+        "name": "Can change product",
+        "content_type": 7,
+        "codename": "change_product"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+        "name": "Can delete product",
+        "content_type": 7,
+        "codename": "delete_product"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+        "name": "Can view product",
+        "content_type": 7,
+        "codename": "view_product"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+        "name": "Can add category",
+        "content_type": 8,
+        "codename": "add_category"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+        "name": "Can change category",
+        "content_type": 8,
+        "codename": "change_category"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+        "name": "Can delete category",
+        "content_type": 8,
+        "codename": "delete_category"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+        "name": "Can view category",
+        "content_type": 8,
+        "codename": "view_category"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+        "name": "Can add تصویر",
+        "content_type": 9,
+        "codename": "add_image"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+        "name": "Can change تصویر",
+        "content_type": 9,
+        "codename": "change_image"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+        "name": "Can delete تصویر",
+        "content_type": 9,
+        "codename": "delete_image"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+        "name": "Can view تصویر",
+        "content_type": 9,
+        "codename": "view_image"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+        "name": "Can add product feature",
+        "content_type": 10,
+        "codename": "add_productfeature"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+        "name": "Can change product feature",
+        "content_type": 10,
+        "codename": "change_productfeature"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+        "name": "Can delete product feature",
+        "content_type": 10,
+        "codename": "delete_productfeature"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+        "name": "Can view product feature",
+        "content_type": 10,
+        "codename": "view_productfeature"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+        "name": "Can add shop user",
+        "content_type": 11,
+        "codename": "add_shopuser"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+        "name": "Can change shop user",
+        "content_type": 11,
+        "codename": "change_shopuser"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+        "name": "Can delete shop user",
+        "content_type": 11,
+        "codename": "delete_shopuser"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+        "name": "Can view shop user",
+        "content_type": 11,
+        "codename": "view_shopuser"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+        "name": "Can add order",
+        "content_type": 12,
+        "codename": "add_order"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+        "name": "Can change order",
+        "content_type": 12,
+        "codename": "change_order"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+        "name": "Can delete order",
+        "content_type": 12,
+        "codename": "delete_order"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+        "name": "Can view order",
+        "content_type": 12,
+        "codename": "view_order"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+        "name": "Can add content type",
+        "content_type": 4,
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+        "name": "Can change content type",
+        "content_type": 4,
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": 4,
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+        "name": "Can view content type",
+        "content_type": 4,
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+        "name": "Can add session",
+        "content_type": 5,
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+        "name": "Can change session",
+        "content_type": 5,
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+        "name": "Can delete session",
+        "content_type": 5,
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+        "name": "Can view session",
+        "content_type": 5,
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 57,
+    "fields": {
+        "name": "Can add محصول",
+        "content_type": 6,
+        "codename": "add_product"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 58,
+    "fields": {
+        "name": "Can change محصول",
+        "content_type": 6,
+        "codename": "change_product"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 59,
+    "fields": {
+        "name": "Can delete محصول",
+        "content_type": 6,
+        "codename": "delete_product"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 60,
+    "fields": {
+        "name": "Can view محصول",
+        "content_type": 6,
+        "codename": "view_product"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 61,
+    "fields": {
+        "name": "Can add دسته بندی",
+        "content_type": 7,
+        "codename": "add_category"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 62,
+    "fields": {
+        "name": "Can change دسته بندی",
+        "content_type": 7,
+        "codename": "change_category"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 63,
+    "fields": {
+        "name": "Can delete دسته بندی",
+        "content_type": 7,
+        "codename": "delete_category"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 64,
+    "fields": {
+        "name": "Can view دسته بندی",
+        "content_type": 7,
+        "codename": "view_category"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 65,
+    "fields": {
+        "name": "Can add تصویر",
+        "content_type": 8,
+        "codename": "add_image"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 66,
+    "fields": {
+        "name": "Can change تصویر",
+        "content_type": 8,
+        "codename": "change_image"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 67,
+    "fields": {
+        "name": "Can delete تصویر",
+        "content_type": 8,
+        "codename": "delete_image"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 68,
+    "fields": {
+        "name": "Can view تصویر",
+        "content_type": 8,
+        "codename": "view_image"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 69,
+    "fields": {
+        "name": "Can add product feature",
+        "content_type": 9,
+        "codename": "add_productfeature"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 70,
+    "fields": {
+        "name": "Can change product feature",
+        "content_type": 9,
+        "codename": "change_productfeature"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 71,
+    "fields": {
+        "name": "Can delete product feature",
+        "content_type": 9,
+        "codename": "delete_productfeature"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 72,
+    "fields": {
+        "name": "Can view product feature",
+        "content_type": 9,
+        "codename": "view_productfeature"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 73,
+    "fields": {
+        "name": "Can add order",
+        "content_type": 10,
+        "codename": "add_order"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 74,
+    "fields": {
+        "name": "Can change order",
+        "content_type": 10,
+        "codename": "change_order"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 75,
+    "fields": {
+        "name": "Can delete order",
+        "content_type": 10,
+        "codename": "delete_order"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 76,
+    "fields": {
+        "name": "Can view order",
+        "content_type": 10,
+        "codename": "view_order"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 77,
+    "fields": {
+        "name": "Can add order item",
+        "content_type": 11,
+        "codename": "add_orderitem"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 78,
+    "fields": {
+        "name": "Can change order item",
+        "content_type": 11,
+        "codename": "change_orderitem"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 79,
+    "fields": {
+        "name": "Can delete order item",
+        "content_type": 11,
+        "codename": "delete_orderitem"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 80,
+    "fields": {
+        "name": "Can view order item",
+        "content_type": 11,
+        "codename": "view_orderitem"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 81,
+    "fields": {
+        "name": "Can add shop user",
+        "content_type": 12,
+        "codename": "add_shopuser"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 82,
+    "fields": {
+        "name": "Can change shop user",
+        "content_type": 12,
+        "codename": "change_shopuser"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 83,
+    "fields": {
+        "name": "Can delete shop user",
+        "content_type": 12,
+        "codename": "delete_shopuser"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 84,
+    "fields": {
+        "name": "Can view shop user",
+        "content_type": 12,
+        "codename": "view_shopuser"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+        "app_label": "admin",
+        "model": "logentry"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+        "app_label": "auth",
+        "model": "permission"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+        "app_label": "auth",
+        "model": "group"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+        "app_label": "contenttypes",
+        "model": "contenttype"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+        "app_label": "sessions",
+        "model": "session"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+        "app_label": "shop",
+        "model": "product"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+        "app_label": "shop",
+        "model": "category"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+        "app_label": "shop",
+        "model": "image"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+        "app_label": "shop",
+        "model": "productfeature"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+        "app_label": "orders",
+        "model": "order"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+        "app_label": "orders",
+        "model": "orderitem"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+        "app_label": "account",
+        "model": "shopuser"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "0a8b2kxjyj65zdpkw4pud4gshnnjj3m6",
+    "fields": {
+        "session_data": "eyJjYXJ0Ijp7IjIiOnsicXVhbnRpdHkiOjEsInByaWNlIjoxNTAwMCwid2VpZ2h0IjoxMH19fQ:1tglN2:_cJ67fJiI8bYsXikc_2p2um_7Ui1Iz9L_8L6cCZe_iI",
+        "expire_date": "2025-02-22T13:59:44.379Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "53sxslh95fc5jxiw8nnqjsaemhaf2ezw",
+    "fields": {
+        "session_data": ".eJxVjjsOgzAQRO_iOrIw_i0p03MGtGt7Y5IISwaqKHcPSC6Sdt7M07zFhPuWp31NdZqjuAolLr8ZYXim5QTxgcu9yFCWrc4kz4psdJVjiel1a90_QcY1H2tw0aPhAawauGdPHfhAGkhbrZGNYQTfR0VKd8yW0SqngQldAJO8PaSlxnZS9Z8vDXc8PA:1tglRi:ikkvYvhoW0g2DGu8-QX7-PmBuny84JMW8tGTKwHPHzk",
+        "expire_date": "2025-02-22T14:04:34.663Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "5nniovla4aauh6bib7nxas2zsixeqavq",
+    "fields": {
+        "session_data": ".eJxVTEsOgjAUvMtbE0JtSwtL956BvH4erRrQUmIM4e5CZKGzmGS-C3Q459DNk09ddNACg-LXM2hvftgDd8WhH0s7DjlFU-6V8kin8jI6fz8f3b-DgFPY1rp2CgU1WrKGTqRMpZU1XBsuOUcSglCrk2OG8YpIEkpWc00Ga6uFV3I7tZgytAuInZ4zDjnmN7SigEeK1kPLqg0FvHzsQ_7KdV0_8ddIrw:1tiCid:_-0sW0zt9dkbjMd3JF_bI9th-8ni1gIuEn_ZmhCEa50",
+        "expire_date": "2025-02-26T13:23:59.167Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "e2ikp1jo7udvcmffoebci0yievkk9pkq",
+    "fields": {
+        "session_data": "eyJjYXJ0Ijp7fX0:1tl9lz:Mb4gWIHP4CmIg-G0YhahiKETgN9BfP3FUXLpGJs5gBE",
+        "expire_date": "2025-03-06T16:51:39.840Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "hju70ozbn23fje8vol9mp7sgco26zasg",
+    "fields": {
+        "session_data": ".eJxVjDsOgzAQRO-yNbJsjLGhTJ8zoPVnsZMIEjCKIsTdAxINzRTz3swKDqcM7QpCHflZcMgp_6AtC3hPyQVotVGcF_ANqY-7KjnftgI6XHLsljlMXfLQgoBLZ9E9w3AA_8ChH5kbhzwlyw6FnXRm99GH1-10LwcR57ivTe01VtQYJRoqSVtutLPSWKmkRKoqQqNLL6yQnEgRKlFLQxZrZ6qgFWx_E_RIxA:1tkRRh:o4aK3gETWYtolB5XHrqdqWpw-oxMASZzgcbbW9NqvPs",
+        "expire_date": "2025-03-04T17:31:45.260Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "l5kyuhxc1rilpno0ew5rqcxc7oq5hvfc",
+    "fields": {
+        "session_data": ".eJxVzMsKgzAQBdB_mbVIYsyjLrvvN8jkMZq2aKuRUsR_bwQpOItZzD13VnA4JWhW4Grf7wWHFNMXmqqA1xRdgEawPAV8Quz6TBXbCuBnzP-4OmPOtqxbXFLfLnOY2uihye3TzaJ7hGEP_B2HbizdOKQp2nIn5ZHO5W304Xk97OlBj3Of20Z5jTVdjOQXqkhbZrSzwlghhUCqa0KjK88tF4xIEkquhCGLypk6aAnbD9d0Vco:1tizmu:z92KuUGapT34saE9mnTfR8NdKa6udxKWjJ9fFOlS3Qw",
+        "expire_date": "2025-02-28T17:47:40.028Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "oio47ipjklkzvrwi4m642yoq3gj90ap0",
+    "fields": {
+        "session_data": ".eJxVjDsOgzAQBe-ydWRhbOOFMj1nQLu2NyaJjMSnQtw9QaKhfTPzdgg0r9DtxwMG2tY8bEuahzFCBxpuG1P4pHKC-KbymlSYyjqPrE5FXXRR_RTT93m5t4NMS_7X2ERPVlp0upVaPFfoAxtk44whsVYIfR01a1OJOCGnG4PC1AS0yTs4fiZfOzM:1tiyuq:aGbG6amSFWqGYmHKv1VHuf10VZvqrFVFqHqtONtJ4GU",
+        "expire_date": "2025-02-28T16:51:48.549Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "sf1c8yfnesw5k9jq3omf2sf8pw8uzl6v",
+    "fields": {
+        "session_data": ".eJxVjsEOgyAQRP-FsyEiIKvH3v0GswtstW0kAT0Z_72aeGiv82ZeZhcjbus0biXmcQ6iF0pUvxmhf8flAuGFyzNJn5Y1zySvirxpkUMK8fO4u3-CCct0rqENDg13YFXHDTuqwXnSQNpqjWwMI7gmKFK6ZraMVrUamLD1YKKzpzTlcJ90lfCYV9Hvx_EFOPw_XA:1tfkJg:XwluBXyt0PYHiFTCCORlYGlh5fiLIEJeiHGNTc4lKhs",
+        "expire_date": "2025-02-19T18:40:04.302Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "zrruwu309vn0itduxdwo0lk9qe4i3go3",
+    "fields": {
+        "session_data": ".eJxVjDsOgzAQRO-yNUI2trGhTJ8zoPVnsZMIEjCKIsTdAxJF0kwx8-at0OGSY7fMYeqShxY4FL-dRXcPwzH4Gw79WLpxyFOy5YGU5zqX19GHx-Vk_wQR57i_Te01SmqM4g1VpC0z2llhrFBCIElJaHTlueWCESlCxWthyGLtjAxa7VKHU4Z2BX3Ea8Ehp_yBlhfwnJIL0FY1Y6yAd0h93EnD2LZtX6rzSI0:1tl90v:LW6y-hpXG1Tuwdv1NkKnpKdPALYIvA6-eKMoEVEftOI",
+        "expire_date": "2025-03-06T16:03:01.845Z"
+    }
+},
+{
+    "model": "shop.category",
+    "pk": 1,
+    "fields": {
+        "name": "لباس",
+        "slug": "lebas"
+    }
+},
+{
+    "model": "shop.category",
+    "pk": 2,
+    "fields": {
+        "name": "شلوار",
+        "slug": "shalvar"
+    }
+},
+{
+    "model": "shop.category",
+    "pk": 3,
+    "fields": {
+        "name": "کفش",
+        "slug": "kafsh"
+    }
+},
+{
+    "model": "shop.category",
+    "pk": 4,
+    "fields": {
+        "name": "کتاب",
+        "slug": "ketab"
+    }
+},
+{
+    "model": "shop.category",
+    "pk": 5,
+    "fields": {
+        "name": "موبایل",
+        "slug": "mobile"
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 1,
+    "fields": {
+        "category": 1,
+        "name": "تیشرت",
+        "slug": "reza",
+        "description": "تیشرت جذب",
+        "inventory": 10,
+        "price": 25000,
+        "weight": 10,
+        "off": 5000,
+        "new_price": 20000,
+        "created": "2025-01-30T17:10:06.047Z",
+        "updated": "2025-02-14T18:35:40.020Z",
+        "total_likes": 0,
+        "likes": []
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 2,
+    "fields": {
+        "category": 2,
+        "name": "شلوار لی",
+        "slug": "shalvar_li",
+        "description": "شلوار بلند",
+        "inventory": 6,
+        "price": 18000,
+        "weight": 10,
+        "off": 3000,
+        "new_price": 15000,
+        "created": "2025-01-30T17:33:07.605Z",
+        "updated": "2025-02-14T16:46:04.270Z",
+        "total_likes": 0,
+        "likes": []
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 3,
+    "fields": {
+        "category": 2,
+        "name": "مام استایل",
+        "slug": "mam_stail",
+        "description": "شلوار مام استایل پسرانه",
+        "inventory": 6,
+        "price": 8000,
+        "weight": 150,
+        "off": 0,
+        "new_price": 8000,
+        "created": "2025-02-09T18:03:17.065Z",
+        "updated": "2025-02-12T16:18:47.377Z",
+        "total_likes": 0,
+        "likes": []
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 4,
+    "fields": {
+        "category": 1,
+        "name": "هودی",
+        "slug": "hodI",
+        "description": "هودی زمستانی مخصوص هوای سرد",
+        "inventory": 13,
+        "price": 16000,
+        "weight": 1000,
+        "off": 6000,
+        "new_price": 10000,
+        "created": "2025-02-10T14:52:06.697Z",
+        "updated": "2025-02-20T18:02:52.056Z",
+        "total_likes": 0,
+        "likes": [
+            1
+        ]
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 5,
+    "fields": {
+        "category": 1,
+        "name": "دورس",
+        "slug": "dors",
+        "description": "دور مناسب اقایان",
+        "inventory": 6,
+        "price": 4000,
+        "weight": 200,
+        "off": 1000,
+        "new_price": 3000,
+        "created": "2025-02-10T14:57:55.764Z",
+        "updated": "2025-02-10T15:01:37.676Z",
+        "total_likes": 0,
+        "likes": []
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 6,
+    "fields": {
+        "category": 2,
+        "name": "اسلش",
+        "slug": "slash",
+        "description": "شلوار اسلش ادیداس",
+        "inventory": 20,
+        "price": 14000,
+        "weight": 1000,
+        "off": 1000,
+        "new_price": 13000,
+        "created": "2025-02-10T15:04:22.769Z",
+        "updated": "2025-02-10T15:04:22.769Z",
+        "total_likes": 0,
+        "likes": []
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 7,
+    "fields": {
+        "category": 2,
+        "name": "کتان",
+        "slug": "katan",
+        "description": "شلوار کتان کرمی",
+        "inventory": 8,
+        "price": 30000,
+        "weight": 800,
+        "off": 4000,
+        "new_price": 26000,
+        "created": "2025-02-10T15:06:29.130Z",
+        "updated": "2025-02-10T15:06:29.130Z",
+        "total_likes": 0,
+        "likes": []
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 8,
+    "fields": {
+        "category": 2,
+        "name": "پارچه ای",
+        "slug": "parche",
+        "description": "شلوار پارچه ای مناسب برای همه جا",
+        "inventory": 4,
+        "price": 20000,
+        "weight": 100,
+        "off": 2000,
+        "new_price": 18000,
+        "created": "2025-02-10T15:08:01.019Z",
+        "updated": "2025-02-10T15:08:01.019Z",
+        "total_likes": 0,
+        "likes": []
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 9,
+    "fields": {
+        "category": 4,
+        "name": "کتاب داستان",
+        "slug": "ketab_dastan",
+        "description": "کتاب داستان برای کودکان",
+        "inventory": 30,
+        "price": 10000,
+        "weight": 555,
+        "off": 0,
+        "new_price": 10000,
+        "created": "2025-02-10T15:10:31.247Z",
+        "updated": "2025-02-12T16:19:18.655Z",
+        "total_likes": 0,
+        "likes": []
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 10,
+    "fields": {
+        "category": 4,
+        "name": "موفقیت",
+        "slug": "moafaghiat",
+        "description": "کتاب موفقیت",
+        "inventory": 6,
+        "price": 10000,
+        "weight": 100,
+        "off": 500,
+        "new_price": 9500,
+        "created": "2025-02-10T15:11:41.105Z",
+        "updated": "2025-02-20T16:13:00.144Z",
+        "total_likes": 0,
+        "likes": []
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 11,
+    "fields": {
+        "category": 5,
+        "name": "سامسونگ",
+        "slug": "samsong",
+        "description": "گوشی سامسونگ",
+        "inventory": 8,
+        "price": 60000,
+        "weight": 100,
+        "off": 0,
+        "new_price": 60000,
+        "created": "2025-02-10T15:14:08.593Z",
+        "updated": "2025-02-12T16:18:38.027Z",
+        "total_likes": 0,
+        "likes": []
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 12,
+    "fields": {
+        "category": 5,
+        "name": "ایفون",
+        "slug": "apple",
+        "description": "گوشی ایفون",
+        "inventory": 2,
+        "price": 10000,
+        "weight": 600,
+        "off": 2000,
+        "new_price": 8000,
+        "created": "2025-02-10T15:16:24.661Z",
+        "updated": "2025-02-20T18:02:52.091Z",
+        "total_likes": 0,
+        "likes": [
+            3
+        ]
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 13,
+    "fields": {
+        "category": 5,
+        "name": "هواوی",
+        "slug": "hovawie",
+        "description": "گوشی هواوی",
+        "inventory": 16,
+        "price": 30000,
+        "weight": 200,
+        "off": 2000,
+        "new_price": 28000,
+        "created": "2025-02-10T15:17:45.618Z",
+        "updated": "2025-02-10T15:17:45.618Z",
+        "total_likes": 0,
+        "likes": []
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 14,
+    "fields": {
+        "category": 3,
+        "name": "نایک",
+        "slug": "nike",
+        "description": "کفش نایک مناسب همه",
+        "inventory": 8,
+        "price": 16000,
+        "weight": 50,
+        "off": 2000,
+        "new_price": 14000,
+        "created": "2025-02-10T15:21:13.727Z",
+        "updated": "2025-02-10T15:21:13.727Z",
+        "total_likes": 0,
+        "likes": []
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 15,
+    "fields": {
+        "category": 3,
+        "name": "ادیداس",
+        "slug": "adidas",
+        "description": "کفش ادیداس مناسب جوانان",
+        "inventory": 4,
+        "price": 80000,
+        "weight": 300,
+        "off": 1500,
+        "new_price": 78500,
+        "created": "2025-02-10T15:22:21.493Z",
+        "updated": "2025-02-20T18:02:52.109Z",
+        "total_likes": 0,
+        "likes": [
+            1
+        ]
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 16,
+    "fields": {
+        "category": 3,
+        "name": "جردن",
+        "slug": "jordan",
+        "description": "کفش جردن",
+        "inventory": 6,
+        "price": 30000,
+        "weight": 60,
+        "off": 0,
+        "new_price": 30000,
+        "created": "2025-02-10T15:23:15.314Z",
+        "updated": "2025-02-20T18:02:52.121Z",
+        "total_likes": 0,
+        "likes": [
+            1,
+            3
+        ]
+    }
+},
+{
+    "model": "shop.image",
+    "pk": 1,
+    "fields": {
+        "product": 1,
+        "file": "post_images/2025/02/12/download_XKTrcBZ.png",
+        "title": null,
+        "description": "",
+        "created": "2025-01-30T17:10:06.054Z"
+    }
+},
+{
+    "model": "shop.image",
+    "pk": 2,
+    "fields": {
+        "product": 2,
+        "file": "post_images/2025/01/30/images1.png",
+        "title": null,
+        "description": "",
+        "created": "2025-01-30T17:33:07.624Z"
+    }
+},
+{
+    "model": "shop.image",
+    "pk": 3,
+    "fields": {
+        "product": 3,
+        "file": "post_images/2025/02/09/download2.png",
+        "title": null,
+        "description": "",
+        "created": "2025-02-09T18:03:17.148Z"
+    }
+},
+{
+    "model": "shop.image",
+    "pk": 4,
+    "fields": {
+        "product": 4,
+        "file": "post_images/2025/02/10/download3.png",
+        "title": "هودی",
+        "description": "",
+        "created": "2025-02-10T14:52:06.779Z"
+    }
+},
+{
+    "model": "shop.image",
+    "pk": 5,
+    "fields": {
+        "product": 5,
+        "file": "post_images/2025/02/10/download4.png",
+        "title": "دورس",
+        "description": "",
+        "created": "2025-02-10T14:57:55.784Z"
+    }
+},
+{
+    "model": "shop.image",
+    "pk": 6,
+    "fields": {
+        "product": 6,
+        "file": "post_images/2025/02/10/download3_0wR0I0r.png",
+        "title": null,
+        "description": "",
+        "created": "2025-02-10T15:04:22.811Z"
+    }
+},
+{
+    "model": "shop.image",
+    "pk": 7,
+    "fields": {
+        "product": 7,
+        "file": "post_images/2025/02/10/download2.png",
+        "title": null,
+        "description": "",
+        "created": "2025-02-10T15:06:29.172Z"
+    }
+},
+{
+    "model": "shop.image",
+    "pk": 8,
+    "fields": {
+        "product": 8,
+        "file": "post_images/2025/02/10/download.png",
+        "title": null,
+        "description": "",
+        "created": "2025-02-10T15:08:01.124Z"
+    }
+},
+{
+    "model": "shop.image",
+    "pk": 9,
+    "fields": {
+        "product": 10,
+        "file": "post_images/2025/02/10/download2_LGX66w3.png",
+        "title": null,
+        "description": "",
+        "created": "2025-02-10T15:11:41.144Z"
+    }
+},
+{
+    "model": "shop.image",
+    "pk": 10,
+    "fields": {
+        "product": 11,
+        "file": "post_images/2025/02/10/download_4uhS0tl.png",
+        "title": null,
+        "description": "",
+        "created": "2025-02-10T15:14:08.677Z"
+    }
+},
+{
+    "model": "shop.image",
+    "pk": 11,
+    "fields": {
+        "product": 12,
+        "file": "post_images/2025/02/10/download2_WfloyIR.png",
+        "title": null,
+        "description": "",
+        "created": "2025-02-10T15:16:24.666Z"
+    }
+},
+{
+    "model": "shop.image",
+    "pk": 12,
+    "fields": {
+        "product": 13,
+        "file": "post_images/2025/02/10/download3_5LiClzU.png",
+        "title": null,
+        "description": "",
+        "created": "2025-02-10T15:17:46.065Z"
+    }
+},
+{
+    "model": "shop.image",
+    "pk": 13,
+    "fields": {
+        "product": 14,
+        "file": "post_images/2025/02/10/download_MvnJQGA.png",
+        "title": null,
+        "description": "",
+        "created": "2025-02-10T15:21:13.748Z"
+    }
+},
+{
+    "model": "shop.image",
+    "pk": 14,
+    "fields": {
+        "product": 15,
+        "file": "post_images/2025/02/10/download2_tcETUCa.png",
+        "title": null,
+        "description": "",
+        "created": "2025-02-10T15:22:21.513Z"
+    }
+},
+{
+    "model": "shop.image",
+    "pk": 15,
+    "fields": {
+        "product": 16,
+        "file": "post_images/2025/02/10/images.png",
+        "title": null,
+        "description": "",
+        "created": "2025-02-10T15:23:15.322Z"
+    }
+},
+{
+    "model": "shop.image",
+    "pk": 16,
+    "fields": {
+        "product": 9,
+        "file": "post_images/2025/02/12/download.png",
+        "title": null,
+        "description": "",
+        "created": "2025-02-12T12:50:53.609Z"
+    }
+},
+{
+    "model": "shop.image",
+    "pk": 17,
+    "fields": {
+        "product": 1,
+        "file": "post_images/2025/02/12/download1_DUky0rw.png",
+        "title": null,
+        "description": "",
+        "created": "2025-02-12T16:20:47.483Z"
+    }
+},
+{
+    "model": "shop.productfeature",
+    "pk": 1,
+    "fields": {
+        "name": "جنس",
+        "value": "پارچه",
+        "product": 1
+    }
+},
+{
+    "model": "shop.productfeature",
+    "pk": 2,
+    "fields": {
+        "name": "جنس",
+        "value": "چرم",
+        "product": 2
+    }
+},
+{
+    "model": "shop.productfeature",
+    "pk": 3,
+    "fields": {
+        "name": "مدل",
+        "value": "مام استایل",
+        "product": 3
+    }
+},
+{
+    "model": "shop.productfeature",
+    "pk": 4,
+    "fields": {
+        "name": "جنس",
+        "value": "نخ پنبه",
+        "product": 4
+    }
+},
+{
+    "model": "shop.productfeature",
+    "pk": 5,
+    "fields": {
+        "name": "وزن",
+        "value": "200",
+        "product": 5
+    }
+},
+{
+    "model": "shop.productfeature",
+    "pk": 6,
+    "fields": {
+        "name": "جنس",
+        "value": "اسلش",
+        "product": 6
+    }
+},
+{
+    "model": "shop.productfeature",
+    "pk": 7,
+    "fields": {
+        "name": "جنس",
+        "value": "کتان",
+        "product": 7
+    }
+},
+{
+    "model": "shop.productfeature",
+    "pk": 8,
+    "fields": {
+        "name": "جنس",
+        "value": "پارچه",
+        "product": 8
+    }
+},
+{
+    "model": "shop.productfeature",
+    "pk": 9,
+    "fields": {
+        "name": "جنس",
+        "value": "کاغذ",
+        "product": 9
+    }
+},
+{
+    "model": "shop.productfeature",
+    "pk": 10,
+    "fields": {
+        "name": "جنس",
+        "value": "کاغذ",
+        "product": 10
+    }
+},
+{
+    "model": "shop.productfeature",
+    "pk": 11,
+    "fields": {
+        "name": "مدل",
+        "value": "سامسونگ",
+        "product": 11
+    }
+},
+{
+    "model": "shop.productfeature",
+    "pk": 12,
+    "fields": {
+        "name": "حافظه",
+        "value": "1ترابایت",
+        "product": 11
+    }
+},
+{
+    "model": "shop.productfeature",
+    "pk": 13,
+    "fields": {
+        "name": "وزن",
+        "value": "100گرم",
+        "product": 11
+    }
+},
+{
+    "model": "shop.productfeature",
+    "pk": 14,
+    "fields": {
+        "name": "مدل",
+        "value": "ایفون",
+        "product": 12
+    }
+},
+{
+    "model": "shop.productfeature",
+    "pk": 15,
+    "fields": {
+        "name": "دوربین",
+        "value": "3",
+        "product": 12
+    }
+},
+{
+    "model": "shop.productfeature",
+    "pk": 16,
+    "fields": {
+        "name": "کیفیت",
+        "value": "بالا",
+        "product": 12
+    }
+},
+{
+    "model": "shop.productfeature",
+    "pk": 17,
+    "fields": {
+        "name": "مدل",
+        "value": "هواوی",
+        "product": 13
+    }
+},
+{
+    "model": "shop.productfeature",
+    "pk": 18,
+    "fields": {
+        "name": "حافظه",
+        "value": "256گیگ",
+        "product": 13
+    }
+},
+{
+    "model": "shop.productfeature",
+    "pk": 19,
+    "fields": {
+        "name": "وزن",
+        "value": "100گرم",
+        "product": 13
+    }
+},
+{
+    "model": "shop.productfeature",
+    "pk": 20,
+    "fields": {
+        "name": "سایز",
+        "value": "42",
+        "product": 14
+    }
+},
+{
+    "model": "shop.productfeature",
+    "pk": 21,
+    "fields": {
+        "name": "سایز",
+        "value": "43",
+        "product": 15
+    }
+},
+{
+    "model": "shop.productfeature",
+    "pk": 22,
+    "fields": {
+        "name": "سایز",
+        "value": "40",
+        "product": 16
+    }
+},
+{
+    "model": "orders.order",
+    "pk": 1,
+    "fields": {
+        "buyer": 1,
+        "first_name": "مهدی",
+        "last_name": "غریب",
+        "phone": "09234233242",
+        "address": "تهران",
+        "postal_code": "6512154844",
+        "province": "تهران",
+        "city": "هاشمی",
+        "created": "2025-02-05T18:26:06.550Z",
+        "updated": "2025-02-05T18:26:06.789Z",
+        "paid": false
+    }
+},
+{
+    "model": "orders.order",
+    "pk": 2,
+    "fields": {
+        "buyer": 1,
+        "first_name": "مهدی",
+        "last_name": "غریب",
+        "phone": "09234233242",
+        "address": "تهران",
+        "postal_code": "6512154844",
+        "province": "تهران",
+        "city": "هاشمی",
+        "created": "2025-02-05T18:27:45.552Z",
+        "updated": "2025-02-05T18:27:45.748Z",
+        "paid": false
+    }
+},
+{
+    "model": "orders.order",
+    "pk": 3,
+    "fields": {
+        "buyer": 1,
+        "first_name": "مهدی",
+        "last_name": "غریب",
+        "phone": "09234233242",
+        "address": "تهران",
+        "postal_code": "6512154844",
+        "province": "تهران",
+        "city": "هاشمی",
+        "created": "2025-02-05T18:28:35.375Z",
+        "updated": "2025-02-05T18:28:35.693Z",
+        "paid": false
+    }
+},
+{
+    "model": "orders.order",
+    "pk": 4,
+    "fields": {
+        "buyer": 1,
+        "first_name": "مهدی",
+        "last_name": "غریب",
+        "phone": "09234233242",
+        "address": "تهران",
+        "postal_code": "6512154844",
+        "province": "تهران",
+        "city": "هاشمی",
+        "created": "2025-02-05T18:38:49.144Z",
+        "updated": "2025-02-05T18:38:49.542Z",
+        "paid": false
+    }
+},
+{
+    "model": "orders.order",
+    "pk": 5,
+    "fields": {
+        "buyer": 1,
+        "first_name": "مهدی",
+        "last_name": "غریب",
+        "phone": "09234233242",
+        "address": "تهران",
+        "postal_code": "6512154844",
+        "province": "تهران",
+        "city": "هاشمی",
+        "created": "2025-02-05T18:39:33.841Z",
+        "updated": "2025-02-05T18:39:34.111Z",
+        "paid": false
+    }
+},
+{
+    "model": "orders.order",
+    "pk": 6,
+    "fields": {
+        "buyer": 1,
+        "first_name": "مهدی",
+        "last_name": "غریب",
+        "phone": "09234233242",
+        "address": "تهران",
+        "postal_code": "6512154844",
+        "province": "تهران",
+        "city": "هاشمی",
+        "created": "2025-02-05T18:40:01.131Z",
+        "updated": "2025-02-05T18:40:01.425Z",
+        "paid": false
+    }
+},
+{
+    "model": "orders.order",
+    "pk": 7,
+    "fields": {
+        "buyer": 1,
+        "first_name": "مهدی",
+        "last_name": "غریب",
+        "phone": "09234233242",
+        "address": "تهران",
+        "postal_code": "6512154844",
+        "province": "تهران",
+        "city": "هاشمی",
+        "created": "2025-02-05T18:40:03.492Z",
+        "updated": "2025-02-05T18:40:03.806Z",
+        "paid": false
+    }
+},
+{
+    "model": "orders.order",
+    "pk": 8,
+    "fields": {
+        "buyer": 2,
+        "first_name": "مهدی",
+        "last_name": "غریب",
+        "phone": "09234233242",
+        "address": "تهران",
+        "postal_code": "5488521314",
+        "province": "تبریز",
+        "city": "اسلامشهر",
+        "created": "2025-02-08T13:52:08.366Z",
+        "updated": "2025-02-08T13:52:08.576Z",
+        "paid": false
+    }
+},
+{
+    "model": "orders.order",
+    "pk": 9,
+    "fields": {
+        "buyer": 1,
+        "first_name": "مهدی",
+        "last_name": "غریب",
+        "phone": "09234233242",
+        "address": "تهران",
+        "postal_code": "5488521314",
+        "province": "تبریز",
+        "city": "اسلامشهر",
+        "created": "2025-02-08T13:54:55.380Z",
+        "updated": "2025-02-08T13:54:55.699Z",
+        "paid": false
+    }
+},
+{
+    "model": "orders.order",
+    "pk": 10,
+    "fields": {
+        "buyer": 1,
+        "first_name": "reza",
+        "last_name": "ahmadi",
+        "phone": "09121212121",
+        "address": "تهران",
+        "postal_code": "6512154844",
+        "province": "تبریز",
+        "city": "مرودشت",
+        "created": "2025-02-08T13:56:13.241Z",
+        "updated": "2025-02-08T13:56:13.542Z",
+        "paid": false
+    }
+},
+{
+    "model": "orders.order",
+    "pk": 11,
+    "fields": {
+        "buyer": 3,
+        "first_name": "حسین",
+        "last_name": "حمیدی",
+        "phone": "09121212121",
+        "address": "tehran",
+        "postal_code": "1348855415",
+        "province": "تهران",
+        "city": "مرودشت",
+        "created": "2025-02-08T14:00:23.115Z",
+        "updated": "2025-02-08T14:00:23.413Z",
+        "paid": false
+    }
+},
+{
+    "model": "orders.order",
+    "pk": 12,
+    "fields": {
+        "buyer": 1,
+        "first_name": "حسین",
+        "last_name": "حمیدی",
+        "phone": "09121212121",
+        "address": "tehran",
+        "postal_code": "1348855415",
+        "province": "تهران",
+        "city": "مرودشت",
+        "created": "2025-02-08T14:04:32.496Z",
+        "updated": "2025-02-08T14:04:34.373Z",
+        "paid": false
+    }
+},
+{
+    "model": "orders.orderitem",
+    "pk": 1,
+    "fields": {
+        "order": 1,
+        "product": 2,
+        "price": 15000,
+        "quantity": 2,
+        "weight": 10
+    }
+},
+{
+    "model": "orders.orderitem",
+    "pk": 2,
+    "fields": {
+        "order": 2,
+        "product": 2,
+        "price": 15000,
+        "quantity": 2,
+        "weight": 10
+    }
+},
+{
+    "model": "orders.orderitem",
+    "pk": 3,
+    "fields": {
+        "order": 8,
+        "product": 2,
+        "price": 15000,
+        "quantity": 2,
+        "weight": 10
+    }
+},
+{
+    "model": "orders.orderitem",
+    "pk": 4,
+    "fields": {
+        "order": 8,
+        "product": 1,
+        "price": 20000,
+        "quantity": 2,
+        "weight": 10
+    }
+},
+{
+    "model": "orders.orderitem",
+    "pk": 5,
+    "fields": {
+        "order": 11,
+        "product": 2,
+        "price": 15000,
+        "quantity": 2,
+        "weight": 10
+    }
+},
+{
+    "model": "account.shopuser",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$RV8x0Jw98Bv6AdvAf7BVci$OQ6q2pFv840i1Rf/O3FVJ4W1Vk3E0jp26sFejSaqvoY=",
+        "last_login": "2025-02-20T15:11:53.885Z",
+        "is_superuser": true,
+        "phone": "09919318166",
+        "first_name": "مهدی",
+        "last_name": "غریب",
+        "address": "تهران",
+        "is_active": true,
+        "is_staff": true,
+        "date_joined": "2025-02-02T15:41:02Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "account.shopuser",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$56jGk4zBLaW9Bp6vVgBZsf$/H5EqKKaQ8Xl112+CaDwJZKfnUNKw+4dmiAU1Sqn9A8=",
+        "last_login": "2025-02-05T18:46:05.052Z",
+        "is_superuser": false,
+        "phone": "09234233242",
+        "first_name": "",
+        "last_name": "",
+        "address": "",
+        "is_active": true,
+        "is_staff": false,
+        "date_joined": "2025-02-05T18:46:01.199Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "account.shopuser",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$sDqZPUkTjFVFZ6WrhWK9KL$C8Bkt8+qS+cS4r81H2jVlrTwbw4pjFvoXDpySzkgxUM=",
+        "last_login": "2025-02-14T16:55:03.644Z",
+        "is_superuser": true,
+        "phone": "09121212121",
+        "first_name": "حسین",
+        "last_name": "حمیدی",
+        "address": "کرج",
+        "is_active": true,
+        "is_staff": true,
+        "date_joined": "2025-02-08T14:00:02Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "account.shopuser",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$T5iYKGgr28to13ipx1pkaM$JRc/Yy6gkP+dpmRyR1UXyOpJEC9DzWuYsgIMZmlnuYo=",
+        "last_login": "2025-02-20T15:05:59.351Z",
+        "is_superuser": false,
+        "phone": "0912",
+        "first_name": "",
+        "last_name": "",
+        "address": "",
+        "is_active": true,
+        "is_staff": false,
+        "date_joined": "2025-02-20T15:05:54.908Z",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]

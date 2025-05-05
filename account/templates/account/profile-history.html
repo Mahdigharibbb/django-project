@@ -1,0 +1,109 @@
+{% extends 'parent/base.html' %}
+{% load static %}
+{% load jformat %}
+{% block title %}پروفایل{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سابقه خرید</title>
+    <!-- fonts-------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/vendor/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/materialdesignicons.css' %}">
+    <!-- plugin------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/kamadatepicker.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/jgallery.min.css' %}">
+    <!-- style-main--------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+</head>
+<body>
+    <!-- content-site -->
+    <main>
+        <div class="main-container">
+            <!--header aside-->
+            {% include 'partials_account/header.html' %}
+            <!--header aside-->
+            <!--header content-->
+            <div class="col-lg-9 col-md-8 col-xs-12 float-left order-1">
+                <section class="content-profile">
+                    <div class="profile-wrapper">
+                        <div class="card">
+                            <!--card header-->
+                            <div class="card-header">
+                                <div class="card-header-caption">
+                                    <div class="card-header-caption-title">
+                                        <div class="card-header-caption-text">سابقه خرید</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--card header end-->
+                            {% for order in orders %}
+                            <!-- table profile -->
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">نام محصول</th>
+                                                <th scope="col">کد تحویل</th>
+                                                <th scope="col">آدرس</th>
+                                                <th scope="col">تاریخ خرید</th>
+                                                <th scope="col">جمع پرداخت</th>
+                                                <th scope="col">وضعیت</th>
+                                                <th scope="col">جزئیات</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{{ order.id }}</td>
+                                                <td class="order-code">{{ order.items.first.product }}</td>
+                                                <td>{{ order.generate_numeric_code }}</td>
+                                                <td>{{ order.address.address }}</td>
+                                                <td>{{ order.created|jformat:"%Y/%m/%d ساعت:%H:%M" }}</td>
+                                                <td>{{ order.get_final_price }} تومان</td>
+                                                {% if order.paid %}
+                                                    <td class="text-success">پرداخت شده</td>
+                                                {% else %}
+                                                    <td class="text" style="color: red">پرداخت نشده</td>
+                                                {% endif %}
+{#                                                <td class="text-success">پرداخت شده</td>#}
+                                                <td><a href="{% url 'account:profile_history_view' order.id  %}" class="btn btn-secondary d-block show-kala">نمایش</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <!-- table profile -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!--header content-->
+        </div>
+    </main>
+    <!-- content-site -->
+    <!-- scroll-top -->
+    <div class="btn btn-danger scrolltop">
+        <i class="fa fa-angle-up"></i>
+        <div class="bg-caver-scroll"></div>
+    </div>
+</body>
+<!-- plugin------------------------------------------------------------->
+<script src="{% static 'js/vendor/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'js/vendor/popper.min.js' %}"></script>
+<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/vendor/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'js/vendor/kamadatepicker.min.js' %}"></script>
+<script src="{% static 'js/vendor/jgallery.min.js' %}"></script>
+<!-- jquery-main-------------------------------------------------------->
+<script src="{% static 'js/main.js' %}"></script>
+</html>
+{% endblock %}

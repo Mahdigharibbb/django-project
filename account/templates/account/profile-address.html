@@ -1,0 +1,312 @@
+{% extends 'parent/base.html' %}
+{% load static %}
+{% block title %}پروفایل{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آدرس های من</title>
+    <!-- fonts-------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/vendor/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/materialdesignicons.css'%}">
+    <!-- plugin------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/swiper-bundle.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/swiper-bundle.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/jgallery.min.css'%}">
+    <!-- style-main--------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css'%}">
+</head>
+<body>
+    <!-- content-site -->
+    <main>
+        <div class="main-container">
+           {% include 'partials_account/header.html' %}
+            <!--header content-->
+            <div class="col-lg-9 col-md-8 col-xs-12 float-left order-1">
+                <section class="content-profile">
+                    <div class="profile-wrapper">
+                        <div class="card">
+                            <!--card header-->
+                            <div class="card-header">
+                                <div class="card-header-caption">
+                                    <div class="card-header-caption-title">
+                                        <div class="card-header-caption-text">آدرس های من</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--card header end-->
+
+                            <!-- address profile -->
+                            <div class="card-body">
+                                <div class="col-lg-5 float-right mb-4">
+                                    <div class="py-48 text-center mb-4">
+                                        <img src="{% static 'images/profile/icon/map.svg' %}" alt="map" class="img-map" width="80">
+                                    </div>
+                                    <div class="text-center">
+                                        <button data-address-id="{{ address.id }}"  id="editBtn" class="btn btn-danger btn-edit pt-1 pb-1" type="submit" data-toggle="modal" data-target="#exampleModalCenter">
+                                            <i class="mdi mdi-plus"></i>
+                                            افزودن آدرس جدید
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-lg-7 float-left">
+                                    <div class="box-option-address">
+                                        {% for address in addresses %}
+                                        <label class="address-item box-option-label" data-address-id="{{ address.id }}">
+                                            <div class="address-item">
+                                                <div class="address-content">
+                                                    <ul class="address-info">
+                                                        <li>
+                                                            <span class="title">تحویل گیرنده:</span>
+                                                            <span class="amount">{{ address.first_name }}</span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="title">آدرس:</span>
+                                                            <span class="amount">{{ address.address }}</span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="title">شماره همراه:</span>
+                                                            <span class="amount">
+                                                                {% if address.phone %}
+                                                                    {{ address.phone }}  <!-- اگر شماره تلفن وارد شده باشد -->
+                                                                {% else %}
+                                                                    {{ address.user.phone }}  <!-- اگر شماره تلفن وارد نشده باشد، شماره پیش‌فرض کاربر نمایش داده می‌شود -->
+                                                                {% endif %}
+                                                            </span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="rem-edit text-left">
+                                                            <button class="btn set-default-address
+                                                             {% if address.is_default %} btn-success {% else %} btn-outline-success {% endif %}"
+                                                                data-address-id="{{ address.id }}"
+                                                                {% if address.is_default %} disabled {% endif %}>
+                                                            {% if address.is_default %} آدرس پیش‌فرض {% else %} انتخاب به‌عنوان پیش‌فرض {% endif %}
+                                                        </button>
+                                                        <button data-address-id="{{ address.id }}" type="button" class="btn btn-danger btn-edit" data-toggle="modal" data-target="#modal-{{ address.id }}"><i class="fa fa-edit"></i>
+                                                            ویرایش
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger btn-remove quantity-remove" data-address-id="{{ address.id }}"><i class="fa fa-trash"></i>
+                                                            حذف
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </label>{% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- address profile -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!--header content-->
+        </div>
+    </main>
+    <!-- Modal -->
+    {% for address in addresses %}
+    <div class="modal fade" id="modal-{{ address.id }}" tabindex="-1" role="dialog" aria-labelledby="modalLabel-{{ address.id }}" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">
+                 ویرایش آدرس
+              </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                  <div class="middle-container">
+                  <form id="editAddressForm{{ address.id }}" action="{% url 'account:profile_address' %}" method="POST" class="form-checkout">
+                      {% csrf_token %}
+                        <input type="hidden" name="address_id" value="{{ address.id }}">
+                      <div class="form-checkout-row">
+                          <div class="form-checkout-valid-row">
+                            <label for="name">نام تحویل گیرنده <span class="required-star" style="color:red;">*</span></label>
+                            <input value="{{ address.first_name }}" name="first_name" type="text" id="first_name" class="input-name-checkout form-control" placeholder="">
+                          </div>
+
+                          <div class="form-checkout-valid-row">
+                            <label for="phone-number">شماره موبایل</label>
+                            <input value="{{ address.phone }}" name="phone" type="number" id="phone-number" class="input-name-checkout form-control" placeholder="" style="text-align:left;">
+                          </div>
+
+                          <label for="address">آدرس
+                            <span class="required-star" style="color:red;">*</span></label>
+                            <input value="{{ address.address }}" name="address" type="text" id="address" class="input-name-checkout form-control" placeholder="">
+
+                          <div class="form-checkout-valid-row w-20">
+                            <label for="bld-num">شهر<span class="required-star" style="color:red;">*</span></label>
+                            <input value="{{ address.city }}" name="city" type="text" id="bld-num" class="input-name-checkout js-input-bld-num form-control" placeholder="">
+                          </div>
+
+                          <div class="form-checkout-valid-row">
+                            <label for="post-code">کد پستی</label>
+                            <input value="{{ address.postal_code }}" name="postal_code" type="text" id="post-code" class="input-name-checkout form-control" placeholder="">
+                          </div>
+
+                          <div class="AR-CR">
+                              <button class="btn-registrar"> ثبت آدرس</button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>{% endfor %}
+
+
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">
+                 ثبت آدرس جدید
+              </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                  <div class="middle-container">
+                  <form id="editAddressForm" action="{% url 'account:profile_address' %}" method="POST" class="form-checkout">
+                      {% csrf_token %}
+                      <div class="form-checkout-row">
+                          <div class="form-checkout-valid-row">
+                            <label for="name">نام تحویل گیرنده <span class="required-star" style="color:red;">*</span></label>
+                            <input name="first_name" type="text" id="first_name" class="input-name-checkout form-control" placeholder="">
+                          </div>
+
+                          <div class="form-checkout-valid-row">
+                            <label for="phone-number">شماره موبایل</label>
+                            <input name="phone" type="number" id="phone-number" class="input-name-checkout form-control" placeholder="" style="text-align:left;">
+                          </div>
+
+                          <label for="address">آدرس
+                            <span class="required-star" style="color:red;">*</span></label>
+                            <input name="address" type="text" id="address" class="input-name-checkout form-control" placeholder="">
+
+                          <div class="form-checkout-valid-row w-20">
+                            <label for="bld-num">شهر<span class="required-star" style="color:red;">*</span></label>
+                            <input name="city" type="text" id="bld-num" class="input-name-checkout js-input-bld-num form-control" placeholder="">
+                          </div>
+
+                          <div class="form-checkout-valid-row">
+                            <label for="post-code">کد پستی</label>
+                            <input name="postal_code" type="text" id="post-code" class="input-name-checkout form-control" placeholder="">
+                          </div>
+
+                          <div class="AR-CR">
+                              <button type="submit" class="btn-registrar"> ثبت آدرس</button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- content-site -->
+    <!-- scroll-top -->
+    <div class="btn btn-danger scrolltop">
+        <i class="fa fa-angle-up"></i>
+        <div class="bg-caver-scroll"></div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready(function () {
+        // تابع حذف آدرس از سرور
+        function removeItem(addressId) {
+            if (!confirm('آیا مطمئن هستید؟')) {
+                return; // اگر کاربر تأیید نکند، عملیات متوقف می‌شود
+            }
+
+            $.ajax({
+                type: 'POST',
+                url: '{% url "account:remove_address" %}',  // بررسی نقل‌قول‌ها
+                data: {
+                    'address_id': addressId,
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
+                },
+                success: function (data) {
+                    if (data.success) {
+                        $(`.btn-remove[data-address-id="${addressId}"]`).closest('.address-item').remove();
+                    } else {
+                        alert('خطا در حذف آدرس!');
+                    }
+                },
+                error: function () {
+                    alert('خطا در ارسال درخواست!');
+                }
+            });
+        }
+
+    // رویداد کلیک روی دکمه حذف
+    $(document).on('click', '.btn-remove', function (e) {
+        e.preventDefault();  // جلوگیری از ارسال فرم پیش‌فرض
+
+        let addressId = $(this).data('address-id');  // گرفتن ID آدرس
+        removeItem(addressId); // اجرای تابع حذف
+    });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".set-default-address").forEach(button => {
+            button.addEventListener("click", function () {
+                let addressId = this.getAttribute("data-address-id");
+
+                fetch("{% url 'account:set_default_address' %}", {
+                    method: "POST",
+                    headers: {
+                        "X-CSRFToken": "{{ csrf_token }}",
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: `address_id=${addressId}`
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // تغییر وضعیت تمام دکمه‌ها به حالت عادی
+                        document.querySelectorAll(".set-default-address").forEach(btn => {
+                            btn.disabled = false;
+                            btn.textContent = "انتخاب به‌عنوان پیش‌فرض";
+                            btn.classList.remove("btn-success");
+                            btn.classList.add("btn-outline-success");
+                        });
+
+                        // تغییر فقط دکمه‌ای که کلیک شده
+                        let selectedButton = document.querySelector(`.set-default-address[data-address-id="${data.address_id}"]`);
+                        if (selectedButton) {
+                            selectedButton.disabled = true;
+                            selectedButton.textContent = "آدرس پیش‌فرض";
+                            selectedButton.classList.remove("btn-outline-success");
+                            selectedButton.classList.add("btn-success");
+                        }
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+            });
+        });
+    });
+</script>
+<!-- plugin------------------------------------------------------------->
+<script src="{% static 'js/vendor/jquery-3.2.1.min.js'%}"></script>
+<script src="{% static 'js/vendor/popper.min.js'%}"></script>
+<script src="{% static 'js/vendor/bootstrap.min.js'%}"></script>
+<script src="{% static 'js/vendor/swiper-bundle.min.js'%}"></script>
+<script src="{% static 'js/vendor/kamadatepicker.min.js'%}"></script>
+<script src="{% static 'js/vendor/jgallery.min.js'%}"></script>
+<!-- jquery-main-------------------------------------------------------->
+<script src="{% static 'js/main.js'%}"></script>
+</html>
+{% endblock %}

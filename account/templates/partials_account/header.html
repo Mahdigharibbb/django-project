@@ -1,0 +1,44 @@
+<!--header aside-->
+<div class="col-lg-3 col-md-4 col-xs-12 float-right order-1">
+    <section class="sidebar-profile">
+        <!-- item -->
+        <div class="box-sidebar-item">
+            <ul class="profile-menu-items">
+                <!-- item-menu-profile -->
+                <li>
+                    <a href="{% url 'account:profile' %}" class="profile-menu-url active">
+                        <i class="fa fa-user-o"></i>
+                        حساب کاربری
+                    </a>
+                </li>
+                <!-- item-menu-profile -->
+                <!-- item-menu-profile -->
+                <li>
+                    <a href="{% url 'account:profile_address' %}" class="profile-menu-url">
+                        <i class="fa fa-map-o"></i>
+                        آدرس های من
+                    </a>
+                </li>
+                <!-- item-menu-profile -->
+                <!-- item-menu-profile -->
+                <li>
+                    <a href="{% url 'account:profile_history' %}" class="profile-menu-url">
+                        <i class="fa fa-history"></i>
+                        تاریخچه خرید
+                    </a>
+                </li>
+                <!-- item-menu-profile -->
+                <!-- item-menu-profile -->
+                <li>
+                    <a href="{% url 'account:profile_likes' %}" class="profile-menu-url">
+                        <i class="fa fa-tasks"></i>
+                        محصولات لایک کرده
+                    </a>
+                </li>
+                <!-- item-menu-profile -->
+            </ul>
+        </div>
+        <!-- item -->
+    </section>
+</div>
+<!--header aside-->

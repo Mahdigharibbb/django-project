@@ -1,0 +1,191 @@
+{#<h2>تایید شماره تلفن</h2>#}
+{#{% for message in messages %}#}
+{#    <div>#}
+{#    {{ message }}#}
+{#    </div>#}
+{#{% endfor %}#}
+{#<form method="post">#}
+{#    {% csrf_token %}#}
+{#    <input type="text" name="code" placeholder="کد تایید را وارد کنید">#}
+{#    <button type="submit">ارسال</button>#}
+{#</form>#}
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ارسال کد</title>
+    <!-- fonts-------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/vendor/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/materialdesignicons.css' %}">
+    <!-- plugin------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/kamadatepicker.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/jgallery.min.css' %}">
+    <!-- style-main--------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+</head>
+<body>
+<!-- content-site -->
+<main>
+    <div class="container-login page-background">
+        <div class="container">
+            <div class="col-lg-6 col-md-6 col-xs-12 mx-auto">
+                <div class="account-box">
+                    <a href="" class="logo-account">
+                        <img src="{% static 'images/logo.png' %}" alt="superkala" height="48">
+                    </a>
+                    <span class="account-head-line">کد تأیید</span>
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <div class="content-account">
+                                <div class="made-account mt-0">
+                                    <p class="mt-2">لطفا برای تایید حساب خود کد ارسال شده به شماره همراه‌تان را وارد نمایید
+                                    </p>
+                                </div>
+                                <div class="account-box-verify-content">
+                                    <div class="form-account">
+                                        <div class="form-account-title">کد فعال سازی پیامک شده را وارد کنید</div>
+                                        <div class="form-account-row">
+                                           <div class="lines-number-input">
+                                               <input type="text" name="code" style="width: 80px" class="line-number-account" maxlength="6" placeholder="*">
+                                           {% if messages %}
+        <div class="error-messages">
+            {% for message in messages %}
+                <p class="error-text">{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+                                           </div>
+                                       </div>
+                                    </div>
+                                </div>
+                                <div class="form-account-row">
+                                    <div class="receive-verify-code">
+                                        <p id="timer-container" data-expiration-time="{{ expiration_time }}"><span class="" id="timer">01:00</span>
+                                        <i class="fa fa-clock-o"></i>
+                                        </p>
+                                    </div>
+                                    <button id="resend-code-btn" type="button">ارسال کد جدید</button>
+                                </div>
+
+                                <div class="form-row-account">
+                                    <button type="submit" class="btn btn-danger btnLogin">ورود به سوپرکالا</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    <div class="account-footer">
+                        <a href="{% url 'account:login' %}" class="btn-link-register">آیا می‌خواهید شماره همراه خود را تغییر دهید؟</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{{ expiration_time|safe }}
+<!-- content-site -->
+</body>
+<!-- plugin------------------------------------------------------------->
+<script>
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const timerContainer = document.getElementById('timer-container');
+    const resendButton = document.getElementById('resend-code-btn');
+    const timerElement = document.getElementById('timer');
+    let timerInterval;
+    if (resendButton) {
+        resendButton.style.display = 'none';
+    }
+    if (timerContainer) {
+        const expirationTime = timerContainer.getAttribute('data-expiration-time');
+        let expirationDate = new Date(Date.parse(expirationTime));
+
+        if (isNaN(expirationDate.getTime())) {
+            console.error("Invalid expiration time:", expirationTime);
+            return;
+        }
+
+        const updateTimer = () => {
+            const currentTime = new Date();
+            const remainingTime = expirationDate - currentTime;
+
+            if (remainingTime <= 0) {
+                timerElement.textContent = 'زمان به پایان رسیده است.';
+                clearInterval(timerInterval);
+                if (resendButton) {
+                    resendButton.style.display = 'block';
+                }
+            } else {
+                const minutes = Math.floor(remainingTime / 60000);
+                const seconds = Math.floor((remainingTime % 60000) / 1000);
+                timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            }
+        };
+
+        timerInterval = setInterval(updateTimer, 1000);
+        updateTimer();
+
+        if (resendButton) {
+            resendButton.addEventListener('click', function() {
+                fetch('{% url 'account:resend_verification_code' %}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': getCookie('csrftoken')
+                    },
+                    body: JSON.stringify({ action: 'resend_code' })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('کد جدید ارسال شد!');
+
+                        const newExpirationTime = data.new_expiration_time;
+                        expirationDate = new Date(new Date().getTime() + newExpirationTime * 1000);
+
+                        clearInterval(timerInterval);
+                        updateTimer();
+                        timerInterval = setInterval(updateTimer, 1000);
+                    } else {
+                        alert('مشکلی در ارسال کد جدید پیش آمد.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('خطا در ارسال کد جدید.');
+                });
+            });
+        }
+    } else {
+        console.error("Timer container not found.");
+    }
+});
+</script>
+<script src="{% static 'js/vendor/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'js/vendor/popper.min.js' %}"></script>
+<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/vendor/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'js/vendor/countdown.min.js' %}"></script>
+<script src="{% static 'js/vendor/kamadatepicker.min.js' %}"></script>
+<script src="{% static 'js/vendor/jgallery.min.js' %}"></script>
+<!-- jquery-main-------------------------------------------------------->
+<script src="{% static 'js/main.js' %}"></script>
+</html>

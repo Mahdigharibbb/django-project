@@ -1,0 +1,99 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود</title>
+    <!-- fonts-------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/vendor/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/materialdesignicons.css' %}">
+    <!-- plugin------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/kamadatepicker.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/jgallery.min.css' %}">
+    <!-- style-main--------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+</head>
+<body>
+<!-- content-site -->
+<main>
+    <div class="container-login page-background">
+        <div class="container">
+            <div class="col-lg-6 col-md-6 col-xs-12 mx-auto">
+                <div class="account-box">
+                    <span class="account-head-line">ورود</span>
+                    <div class="account-phone text-caption text-center">لطفا برای ورود شماره تلفن همراه خود را وارد کنید</div>
+                        <form method="post" action="{% url 'account:login' %}">
+                        {% csrf_token %}
+                            <div class="content-account">
+                            <div class="account-item email">
+                                <label for="phone"> شماره موبایل</label>
+                                <input name="username" type="tel" id="username" class="account" placeholder="" maxlength="11" required>
+                            </div>
+                            <div class="account-item password">
+                                <label for="password">رمز عبور</label>
+                                <input name="password" type="password" id="password" class="input-password" placeholder="" required>
+                                    <button style="position: absolute; margin-right: -96%; margin-top: +21%" type="button" onclick="togglePassword()">👁</button>
+
+                            </div>
+
+                            <div class="order">
+                                <a href="{%  url 'account:password_reset_phone' %}" class="account-link-password">رمز عبور را فراموش کرده اید؟</a>
+
+                                <div class="boxes">
+                                    <input type="checkbox" id="box-1" class="checkbox-login">
+                                    <label for="box-1">مرا به خاطر بسپار</label>
+                                </div>
+                            </div>
+                            <input type="hidden" name="next" value="{{ next }}">
+                            <button type="submit" class="btn btn-danger btnLogin">ورود به سوپرکالا</button>
+
+                        </div>
+                         {% if messages %}
+                            <div class="messages">
+                                {% for message in messages %}
+                                    <p class="text-danger">{{ message }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </form>
+
+                    <div class="account-footer">
+                        <span>هنوز حساب کاربری ندارید؟</span>
+                        <a href="{% url 'account:register' %}" class="btn-link-register">ثبت‌نام</a>
+                    </div>
+                        <a href="{% url 'shop:product_list' %}" class="btn btn-sm back-to-index">
+                            <i class="fa fa-angle-right"></i>
+                            بازگشت به لیست محصولات
+                        </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- content-site -->
+</body>
+<!-- plugin------------------------------------------------------------->
+<script src="{% static 'js/vendor/jquery-3.2.1.min.js'%}"></script>
+<script src="{% static 'js/vendor/popper.min.js'%}"></script>
+<script src="{% static 'js/vendor/bootstrap.min.js'%}"></script>
+<script src="{% static 'js/vendor/swiper-bundle.min.js'%}"></script>
+<script src="{% static 'js/vendor/kamadatepicker.min.js'%}"></script>
+<script src="{% static 'js/vendor/jgallery.min.js'%}"></script>
+<!-- jquery-main-------------------------------------------------------->
+<script src="{% static 'js/main.js'%}"></script>
+<script>
+    function togglePassword() {
+        var passField = document.getElementById("password");
+        if (passField.type === "password") {
+            passField.type = "text";
+        } else {
+            passField.type = "password";
+        }
+    }
+</script>
+</html>
